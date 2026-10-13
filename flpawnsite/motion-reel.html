@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+<title>Florida Pawn — Brand Film</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap"></noscript>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+:root {
+  --reel-ink: #1d231e;
+  --reel-muted: #73786f;
+  --reel-paper: #f4f2ec;
+  --reel-line: #deded5;
+  --reel-green: #163d2b;
+  --reel-gold: #d6b46b;
+}
+
+html, body {
+  background: var(--reel-paper);
+  color: var(--reel-ink);
+  font-family: Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.reel-page {
+  min-height: 100vh;
+  padding: 22px 28px 42px;
+  background:
+    radial-gradient(ellipse at 50% -15%, rgba(255,255,255,.94), transparent 64%),
+    var(--reel-paper);
+}
+
+.reel-shell { width: min(1050px, 100%); margin: 0 auto; }
+
+/* ── HEADER ── */
+.reel-topline {
+  display: flex; align-items: center; justify-content: space-between;
+  min-height: 46px; border-bottom: 1px solid var(--reel-line);
+}
+.reel-brand-lockup { display: flex; align-items: center; gap: 10px; }
+.reel-brand-mark {
+  display: grid; width: 34px; height: 34px; place-items: center;
+  border-radius: 50%; background: var(--reel-green); color: #f6eddb;
+  font-family: Georgia, serif; font-size: 13px; letter-spacing: -1px;
+}
+.reel-brand-copy { display: flex; flex-direction: column; gap: 2px; }
+.reel-brand-name { font-size: 11px; font-weight: 800; letter-spacing: 1.8px; }
+.reel-brand-subtitle { color: var(--reel-muted); font-size: 8px; font-weight: 700; letter-spacing: 1.15px; }
+.reel-header-right { display: flex; align-items: center; gap: 9px; color: #61675f; font-size: 9px; font-weight: 700; letter-spacing: 1.1px; }
+.reel-live-dot { width: 6px; height: 6px; border-radius: 50%; background: #b18d49; }
+.reel-header-divider { width: 1px; height: 12px; margin: 0 3px; background: #d3d0c7; }
+
+/* ── HEADING ROW ── */
+.reel-heading-row {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 22px 0 17px;
+}
+.reel-kicker { margin: 0 0 4px; color: #788076; font-size: 9px; font-weight: 700; letter-spacing: 1.8px; }
+.reel-heading-row h1 {
+  margin: 0; font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(24px, 4vw, 34px); font-weight: 500; letter-spacing: -1.2px;
+}
+
+/* ── STAGE ── */
+.reel-stage {
+  position: relative; overflow: hidden; width: 100%;
+  aspect-ratio: 16 / 8.45; min-height: 270px;
+  isolation: isolate; background: #1d241f; color: white;
+}
+.reel-stage-image {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; z-index: 0;
+  animation: reel-image-enter 900ms cubic-bezier(.2,.65,.2,1) both;
+}
+.reel-stage-shade {
+  position: absolute; z-index: 1; inset: 0;
+  background:
+    linear-gradient(90deg, rgba(13,25,19,.72) 0%, rgba(17,25,20,.4) 43%, rgba(19,22,19,.04) 100%),
+    linear-gradient(0deg, rgba(12,17,13,.62), transparent 39%);
+}
+.reel-stage-grain {
+  position: absolute; z-index: 2; inset: 0; pointer-events: none; opacity: .13;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.22'/%3E%3C/svg%3E");
+}
+.reel-frame-corner { position: absolute; z-index: 3; width: 16px; height: 16px; border-color: rgba(255,255,255,.56); border-style: solid; }
+.reel-frame-top-left    { top: 15px; left: 15px;  border-width: 1px 0 0 1px; }
+.reel-frame-top-right   { top: 15px; right: 15px; border-width: 1px 1px 0 0; }
+.reel-frame-bottom-left  { bottom: 15px; left: 15px; border-width: 0 0 1px 1px; }
+.reel-frame-bottom-right { bottom: 15px; right: 15px; border-width: 0 1px 1px 0; }
+.reel-scene-index, .reel-scene-tag {
+  position: absolute; top: 27px; z-index: 4;
+  color: rgba(255,255,255,.86); font-size: 9px; font-weight: 700; letter-spacing: 1.2px;
+}
+.reel-scene-index { left: 30px; }
+.reel-scene-index span { color: var(--reel-gold); }
+.reel-scene-tag { right: 30px; display: flex; align-items: center; gap: 7px; }
+.reel-tag-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--reel-gold); }
+.reel-scene-copy {
+  position: absolute; left: 8.4%; top: 50%; z-index: 4;
+  width: min(62%, 570px); transform: translateY(-54%);
+  animation: reel-copy-enter 650ms cubic-bezier(.2,.8,.2,1) both;
+}
+.reel-scene-accent {
+  margin-bottom: 9px; color: #e2c37f;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(14px, 2vw, 21px); font-style: italic;
+}
+.reel-scene-copy h2 {
+  max-width: 580px; margin: 0;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(34px, 6.2vw, 68px); font-weight: 500;
+  letter-spacing: -2.2px; line-height: .98;
+  text-wrap: balance; text-shadow: 0 2px 24px rgba(0,0,0,.15);
+}
+.reel-title-rule { width: 100px; height: 1px; margin-top: 19px; background: rgba(255,255,255,.38); }
+.reel-title-rule span { display: block; width: 36%; height: 1px; background: var(--reel-gold); }
+.reel-captions {
+  position: absolute; bottom: 26px; left: 8.4%; z-index: 4;
+  max-width: min(80%, 690px);
+  color: rgba(255,255,255,.9); font-size: 12px; line-height: 1.5;
+  text-shadow: 0 1px 12px rgba(0,0,0,.5);
+}
+.reel-scene-progress { position: absolute; right: 0; bottom: 0; left: 0; z-index: 5; height: 3px; background: rgba(255,255,255,.16); }
+.reel-scene-progress span { display: block; height: 100%; transform-origin: left; background: var(--reel-gold); transition: width 120ms linear; }
+
+/* ── START / REPLAY OVERLAY ── */
+.reel-start-overlay, .reel-replay-overlay {
+  position: absolute; inset: 0; z-index: 6;
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(0,0,0,.35); border: 0; cursor: pointer; color: white;
+}
+.reel-start-overlay span {
+  display: grid; width: 64px; height: 64px; place-items: center;
+  border-radius: 50%; border: 2px solid rgba(255,255,255,.7);
+  background: rgba(22,61,43,.8); backdrop-filter: blur(4px);
+  transition: transform 200ms, background 200ms;
+}
+.reel-start-overlay:hover span { transform: scale(1.08); background: rgba(22,61,43,1); }
+.reel-replay-overlay {
+  flex-direction: column; gap: 10px;
+  font-size: 11px; font-weight: 700; letter-spacing: 2px;
+}
+.reel-replay-overlay span {
+  display: grid; width: 48px; height: 48px; place-items: center;
+  border-radius: 50%; border: 1.5px solid rgba(255,255,255,.6);
+  background: rgba(22,61,43,.8);
+}
+
+/* ── CONTROLS ── */
+.reel-controls {
+  display: flex; align-items: center; gap: 15px;
+  min-height: 62px; border-bottom: 1px solid var(--reel-line);
+}
+.reel-play-button {
+  display: grid; flex: 0 0 auto; place-items: center;
+  width: 34px; height: 34px; border-radius: 50%;
+  border: 0; background: var(--reel-green); color: white;
+  cursor: pointer; transition: background 180ms, transform 180ms;
+}
+.reel-play-button:hover { transform: scale(1.05); background: #22583e; }
+.reel-playback-info { flex: 1; min-width: 0; }
+.reel-time-row {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 4px; font-variant-numeric: tabular-nums; font-size: 9px;
+}
+.reel-time-current { color: var(--reel-ink); font-weight: 700; }
+.reel-time-total { color: #8a8d85; }
+.reel-scrubber {
+  display: block; width: 100%; height: 3px; margin: 0;
+  appearance: none; -webkit-appearance: none;
+  border-radius: 99px; cursor: pointer;
+  background: linear-gradient(to right, var(--reel-green) 0 var(--progress, 0%), #d8d9d1 var(--progress, 0%) 100%);
+}
+.reel-scrubber::-webkit-slider-thumb {
+  width: 10px; height: 10px; appearance: none; -webkit-appearance: none;
+  border: 2px solid var(--reel-paper); border-radius: 50%;
+  background: var(--reel-green); box-shadow: 0 0 0 1px var(--reel-green);
+}
+.reel-scrubber::-moz-range-thumb {
+  width: 8px; height: 8px; border: 2px solid var(--reel-paper); border-radius: 50%;
+  background: var(--reel-green); box-shadow: 0 0 0 1px var(--reel-green);
+}
+.reel-scrubber-wrap { position: relative; }
+.reel-scrubber-markers { position: absolute; top: 0; left: 0; right: 0; height: 3px; pointer-events: none; }
+.reel-scrubber-markers span { position: absolute; top: -2px; width: 1px; height: 7px; background: rgba(255,255,255,.5); transform: translateX(-50%); }
+.reel-control-meta { display: flex; align-items: center; gap: 14px; color: #767b72; font-size: 9px; font-weight: 700; letter-spacing: .8px; }
+.reel-restart-button {
+  display: grid; width: 26px; height: 30px; place-items: center;
+  border: 0; background: transparent; color: #767b72; cursor: pointer;
+}
+.reel-restart-button:hover { color: var(--reel-green); }
+.reel-restart-button svg { width: 15px; height: 15px; }
+
+/* ── STORYBOARD ── */
+.reel-storyboard { padding: 17px 0 16px; }
+.reel-storyboard-header {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 10px; color: #84887f; font-size: 8px; font-weight: 700; letter-spacing: 1.35px;
+}
+.reel-scene-list { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; }
+.reel-scene-card {
+  display: flex; align-items: center; position: relative;
+  min-height: 57px; gap: 10px; padding: 9px 10px;
+  border: 1px solid #dfdfd7; background: rgba(255,255,255,.33);
+  color: var(--reel-ink); text-align: left; cursor: pointer;
+  transition: border-color 180ms, background 180ms, transform 180ms;
+}
+.reel-scene-card:hover { transform: translateY(-1px); border-color: #a6aa9e; }
+.reel-scene-card.is-active { border-color: var(--reel-green); background: #e9ece5; box-shadow: inset 0 2px var(--reel-green); }
+.reel-card-number { align-self: flex-start; padding-top: 2px; color: #a17f42; font-family: Georgia, 'Times New Roman', serif; font-size: 13px; }
+.reel-card-info { display: flex; flex: 1; min-width: 0; flex-direction: column; gap: 4px; }
+.reel-card-title { overflow: hidden; font-size: 10px; font-weight: 700; text-overflow: ellipsis; white-space: nowrap; }
+.reel-card-time { color: #83877e; font-size: 8px; letter-spacing: .5px; }
+
+/* ── FOOTER ── */
+.reel-footer {
+  display: flex; align-items: center; justify-content: space-between;
+  min-height: 31px; border-top: 1px solid var(--reel-line);
+  color: #858980; font-size: 8px; font-weight: 700; letter-spacing: 1px;
+}
+.reel-footer a { color: inherit; text-decoration: none; }
+.reel-footer a:hover { color: var(--reel-green); }
+
+/* ── ANIMATIONS ── */
+@keyframes reel-copy-enter {
+  from { opacity: 0; transform: translateY(calc(-54% + 12px)); }
+  to   { opacity: 1; transform: translateY(-54%); }
+}
+@keyframes reel-image-enter {
+  from { opacity: .5; transform: scale(1.035); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 640px) {
+  .reel-page { padding: 14px 14px 30px; }
+  .reel-heading-row { align-items: flex-end; padding: 19px 0 14px; }
+  .reel-stage { aspect-ratio: 1 / 1.08; min-height: 385px; }
+  .reel-stage-image { object-position: 58% center; }
+  .reel-stage-shade {
+    background:
+      linear-gradient(90deg, rgba(13,25,19,.68), rgba(13,25,19,.1)),
+      linear-gradient(0deg, rgba(12,17,13,.72), transparent 53%);
+  }
+  .reel-scene-index, .reel-scene-tag { top: 24px; font-size: 8px; }
+  .reel-scene-index { left: 25px; }
+  .reel-scene-tag { right: 25px; max-width: 54%; justify-content: flex-end; font-size: 7px; }
+  .reel-scene-copy { top: 47%; left: 8%; width: 84%; }
+  .reel-scene-copy h2 { max-width: 400px; font-size: clamp(39px, 11vw, 57px); letter-spacing: -1.7px; }
+  .reel-captions { right: 8%; bottom: 25px; left: 8%; max-width: none; font-size: 11px; }
+  .reel-controls { gap: 11px; min-height: 58px; }
+  .reel-control-meta { gap: 9px; }
+  .reel-scene-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .reel-scene-card { min-height: 54px; }
+  .reel-storyboard-header { font-size: 7px; letter-spacing: 1px; }
+  .reel-footer { align-items: flex-start; flex-direction: column; justify-content: center; gap: 5px; padding: 9px 0; font-size: 7px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+}
+</style>
+</head>
+<body>
+<div class="reel-page">
+<div class="reel-shell">
+
+  <!-- HEADER -->
+  <header class="reel-topline">
+    <div class="reel-brand-lockup">
+      <div class="reel-brand-mark">FP</div>
+      <div class="reel-brand-copy">
+        <span class="reel-brand-name">FLORIDA PAWN</span>
+        <span class="reel-brand-subtitle">EST. 1949 · SOUTH FLORIDA</span>
+      </div>
+    </div>
+    <div class="reel-header-right">
+      <span class="reel-live-dot"></span>
+      BRAND FILM
+      <span class="reel-header-divider"></span>
+      2025
+    </div>
+  </header>
+
+  <!-- TITLE ROW -->
+  <div class="reel-heading-row">
+    <div>
+      <p class="reel-kicker">A 30-SECOND BRAND FILM</p>
+      <h1>Good things have <em>value.</em></h1>
+    </div>
+  </div>
+
+  <!-- STAGE -->
+  <div class="reel-stage" id="reelStage">
+    <img class="reel-stage-image" id="sceneImage" src="images/reel-story.jpg" alt="" width="1376" height="768" fetchpriority="high">
+    <div class="reel-stage-shade"></div>
+    <div class="reel-stage-grain"></div>
+    <div class="reel-frame-corner reel-frame-top-left"></div>
+    <div class="reel-frame-corner reel-frame-top-right"></div>
+    <div class="reel-frame-corner reel-frame-bottom-left"></div>
+    <div class="reel-frame-corner reel-frame-bottom-right"></div>
+    <div class="reel-scene-index" id="sceneIndex">01 <span>/ 04</span></div>
+    <div class="reel-scene-tag" id="sceneTag"><span class="reel-tag-dot"></span> <span id="sceneTagLabel">OUR STORY</span></div>
+    <div class="reel-scene-copy" id="sceneCopy">
+      <p class="reel-scene-accent" id="sceneEyebrow">A neighborhood tradition</p>
+      <h2 id="sceneTitle">75 years of<br>showing up.</h2>
+      <div class="reel-title-rule"><span></span></div>
+    </div>
+    <p class="reel-captions" id="sceneCaptions">For over 75 years, South Florida families have trusted Florida Pawn. We're not just a pawn shop — we're your neighborhood experts in jewelry, gold, electronics, and more.</p>
+    <div class="reel-scene-progress"><span id="sceneProgressBar" style="width:0%"></span></div>
+
+    <!-- Play overlay (shown at start) -->
+    <button class="reel-start-overlay" id="startOverlay" onclick="togglePlayback()" aria-label="Play Florida Pawn reel">
+      <span>
+        <svg width="21" height="21" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
+      </span>
+    </button>
+    <!-- Replay overlay (shown at end, hidden initially) -->
+    <button class="reel-replay-overlay" id="replayOverlay" onclick="togglePlayback()" aria-label="Replay reel" style="display:none">
+      <span>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-3.5"/></svg>
+      </span>
+      REPLAY FILM
+    </button>
+  </div>
+
+  <!-- PLAYBACK CONTROLS -->
+  <div class="reel-controls">
+    <!-- Prev -->
+    <button style="display:grid;width:28px;height:28px;place-items:center;border:0;background:transparent;color:#767b72;cursor:pointer;" onclick="goToScene(activeIndex - 1)" aria-label="Previous scene">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><polygon points="19,20 9,12 19,4"/><line x1="5" y1="4" x2="5" y2="20" stroke="currentColor" stroke-width="2"/></svg>
+    </button>
+    <!-- Play/Pause -->
+    <button class="reel-play-button" id="playBtn" onclick="togglePlayback()" aria-label="Play reel">
+      <svg id="playIcon" width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
+    </button>
+    <!-- Next -->
+    <button style="display:grid;width:28px;height:28px;place-items:center;border:0;background:transparent;color:#767b72;cursor:pointer;" onclick="goToScene(activeIndex + 1)" aria-label="Next scene">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,4 15,12 5,20"/><line x1="19" y1="4" x2="19" y2="20" stroke="currentColor" stroke-width="2"/></svg>
+    </button>
+
+    <div class="reel-playback-info">
+      <div class="reel-time-row">
+        <span class="reel-time-current" id="timeDisplay">00:00</span>
+        <span class="reel-time-total">/ 00:30</span>
+      </div>
+      <div class="reel-scrubber-wrap">
+        <input class="reel-scrubber" id="scrubber" type="range" min="0" max="30" step="0.1" value="0"
+          aria-label="Reel playback position"
+          oninput="onScrub(this.value)"
+          onpointerdown="isPlaying && (isPlaying=false, updatePlayIcon())">
+        <div class="reel-scrubber-markers" aria-hidden="true">
+          <span style="left:23.33%"></span>
+          <span style="left:50%"></span>
+          <span style="left:76.67%"></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Restart -->
+    <button class="reel-restart-button" onclick="restart()" aria-label="Restart reel">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-3.5"/></svg>
+    </button>
+  </div>
+
+  <!-- STORYBOARD -->
+  <div class="reel-storyboard">
+    <div class="reel-storyboard-header"><span>STORYBOARD</span><span>4 SCENES · 0:30</span></div>
+    <div class="reel-scene-list" id="sceneList">
+      <button class="reel-scene-card is-active" onclick="goToScene(0)">
+        <span class="reel-card-number">01</span>
+        <span class="reel-card-info"><strong class="reel-card-title">Our story</strong><small class="reel-card-time">00:00 — 00:07</small></span>
+      </button>
+      <button class="reel-scene-card" onclick="goToScene(1)">
+        <span class="reel-card-number">02</span>
+        <span class="reel-card-info"><strong class="reel-card-title">How it works</strong><small class="reel-card-time">00:07 — 00:15</small></span>
+      </button>
+      <button class="reel-scene-card" onclick="goToScene(2)">
+        <span class="reel-card-number">03</span>
+        <span class="reel-card-info"><strong class="reel-card-title">Why we pay more</strong><small class="reel-card-time">00:15 — 00:23</small></span>
+      </button>
+      <button class="reel-scene-card" onclick="goToScene(3)">
+        <span class="reel-card-number">04</span>
+        <span class="reel-card-info"><strong class="reel-card-title">Get started</strong><small class="reel-card-time">00:23 — 00:30</small></span>
+      </button>
+    </div>
+  </div>
+
+  <footer class="reel-footer">
+    <span>FLORIDA PAWN <i>© 2025</i></span>
+    <span>75 YEARS OF TRUST. ONE NEIGHBORHOOD AT A TIME.</span>
+    <a href="index.html">← BACK TO SITE</a>
+  </footer>
+
+</div><!-- .reel-shell -->
+</div><!-- .reel-page -->
+
+<script>
+const SCENES = [
+  {
+    id: 'story', number: '01', label: 'OUR STORY',
+    start: 0, end: 7,
+    image: 'images/reel-story.jpg',
+    eyebrow: 'A neighborhood tradition',
+    title: '75 years of\nshowing up.',
+    caption: "For over 75 years, South Florida families have trusted Florida Pawn. We’re not just a pawn shop — we’re your neighborhood experts in jewelry, gold, electronics, and more.",
+  },
+  {
+    id: 'process', number: '02', label: 'HOW IT WORKS',
+    start: 7, end: 15,
+    image: 'images/reel-process.jpg',
+    eyebrow: 'Easy as 1, 2, 3',
+    title: 'Bring it in.\nWalk out paid.',
+    caption: "It’s simple. Bring in your item. Our specialists appraise it — free, no pressure, no appointment. Accept our offer, and walk out with cash in hand. Same day. Every time.",
+  },
+  {
+    id: 'expertise', number: '03', label: 'WHY WE PAY MORE',
+    start: 15, end: 23,
+    image: 'images/reel-expertise.jpg',
+    eyebrow: 'Expertise makes the difference',
+    title: "We know what\nit’s worth.",
+    caption: "Unlike online marketplaces or other shops, we have certified appraisers, in-house gold testing, and real-time market pricing. That means we pay more — because we know exactly what your item is worth.",
+  },
+  {
+    id: 'closing', number: '04', label: 'GET STARTED',
+    start: 23, end: 30,
+    image: 'images/reel-closing.jpg',
+    eyebrow: 'Hollywood · Margate',
+    title: 'Your cash.\nYour way.',
+    caption: "Ready to turn what you own into cash? Walk into our Hollywood or Margate location today. No appointment needed. Florida Pawn — your cash, your way.",
+  },
+];
+
+const DURATION = 30;
+let currentTime = 0;
+let isPlaying = false;
+let timer = null;
+let activeIndex = 0;
+
+const sceneImage     = document.getElementById('sceneImage');
+const sceneIndex     = document.getElementById('sceneIndex');
+const sceneTagLabel  = document.getElementById('sceneTagLabel');
+const sceneCopy      = document.getElementById('sceneCopy');
+const sceneEyebrow   = document.getElementById('sceneEyebrow');
+const sceneTitle     = document.getElementById('sceneTitle');
+const sceneCaptions  = document.getElementById('sceneCaptions');
+const sceneProgressBar = document.getElementById('sceneProgressBar');
+const startOverlay   = document.getElementById('startOverlay');
+const replayOverlay  = document.getElementById('replayOverlay');
+const playBtn        = document.getElementById('playBtn');
+const playIcon       = document.getElementById('playIcon');
+const scrubber       = document.getElementById('scrubber');
+const timeDisplay    = document.getElementById('timeDisplay');
+const sceneCards     = document.querySelectorAll('.reel-scene-card');
+
+function fmt(s) {
+  return '00:' + String(Math.floor(s)).padStart(2, '0');
+}
+
+function updatePlayIcon() {
+  playIcon.innerHTML = isPlaying
+    ? '<rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/>'
+    : '<polygon points="5,3 19,12 5,21"/>';
+}
+
+function renderScene(idx) {
+  const s = SCENES[idx];
+  activeIndex = idx;
+
+  // Trigger re-animation by removing + re-adding the element
+  const newImg = sceneImage.cloneNode(false);
+  newImg.src = s.image;
+  sceneImage.parentNode.replaceChild(newImg, sceneImage);
+  // update reference (local var)
+  Object.defineProperty(window, '_img', { value: newImg, configurable: true });
+
+  sceneIndex.innerHTML = s.number + ' <span>/ 04</span>';
+  sceneTagLabel.textContent = s.label;
+
+  // Re-trigger copy animation
+  sceneCopy.style.animation = 'none';
+  sceneCopy.offsetHeight; // reflow
+  sceneCopy.style.animation = '';
+
+  sceneEyebrow.textContent = s.eyebrow;
+  sceneTitle.innerHTML = s.title.replace('\n', '<br>');
+  sceneCaptions.textContent = s.caption;
+
+  // Update storyboard cards
+  sceneCards.forEach((c, i) => c.classList.toggle('is-active', i === idx));
+}
+
+function updateProgress() {
+  const s = SCENES[activeIndex];
+  const sceneDur = s.end - s.start;
+  const elapsed = Math.max(0, currentTime - s.start);
+  const pct = Math.min(100, (elapsed / sceneDur) * 100);
+  sceneProgressBar.style.width = pct + '%';
+
+  const totalPct = (currentTime / DURATION) * 100;
+  scrubber.style.setProperty('--progress', totalPct + '%');
+  scrubber.value = currentTime;
+  timeDisplay.textContent = fmt(currentTime);
+}
+
+function tick() {
+  currentTime = Math.min(DURATION, currentTime + 0.1);
+
+  // Check scene change
+  const newIdx = SCENES.findIndex(s => currentTime >= s.start && currentTime < s.end);
+  if (newIdx !== -1 && newIdx !== activeIndex) renderScene(newIdx);
+
+  updateProgress();
+
+  if (currentTime >= DURATION) {
+    isPlaying = false;
+    clearInterval(timer);
+    updatePlayIcon();
+    startOverlay.style.display = 'none';
+    replayOverlay.style.display = 'flex';
+  }
+}
+
+function togglePlayback() {
+  if (currentTime >= DURATION) {
+    currentTime = 0;
+    renderScene(0);
+    updateProgress();
+    replayOverlay.style.display = 'none';
+  }
+  isPlaying = !isPlaying;
+  updatePlayIcon();
+  startOverlay.style.display = 'none';
+  replayOverlay.style.display = 'none';
+
+  if (isPlaying) {
+    timer = setInterval(tick, 100);
+  } else {
+    clearInterval(timer);
+  }
+}
+
+function goToScene(idx) {
+  if (idx < 0 || idx >= SCENES.length) return;
+  isPlaying = false;
+  clearInterval(timer);
+  updatePlayIcon();
+  currentTime = SCENES[idx].start;
+  renderScene(idx);
+  updateProgress();
+  replayOverlay.style.display = 'none';
+  startOverlay.style.display = 'none';
+}
+
+function restart() {
+  isPlaying = false;
+  clearInterval(timer);
+  updatePlayIcon();
+  currentTime = 0;
+  renderScene(0);
+  updateProgress();
+  replayOverlay.style.display = 'none';
+  startOverlay.style.display = 'flex';
+}
+
+function onScrub(val) {
+  currentTime = parseFloat(val);
+  const newIdx = SCENES.findIndex(s => currentTime >= s.start && currentTime < s.end);
+  if (newIdx !== -1 && newIdx !== activeIndex) renderScene(newIdx);
+  updateProgress();
+  replayOverlay.style.display = currentTime >= DURATION ? 'flex' : 'none';
+  if (currentTime >= DURATION) startOverlay.style.display = 'none';
+}
+
+// Init
+renderScene(0);
+updateProgress();
+</script>
+</body>
+</html>
