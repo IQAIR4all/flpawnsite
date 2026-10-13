@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://fla-pawn.com/sitemap.xml
