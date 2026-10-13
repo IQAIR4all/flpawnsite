@@ -202,6 +202,8 @@ p{max-width:65ch}a{color:var(--gold-dark);text-decoration:none}a:hover{text-deco
 <label for="loan-email">Email</label><input id="loan-email" name="email" type="email" autocomplete="email" maxlength="254" required>
 <label for="loan-item">Item description</label><textarea id="loan-item" name="item" rows="4" maxlength="2000" required></textarea>
 <label for="loan-amount">Requested loan amount (USD)</label><input id="loan-amount" name="amount" type="number" min="1" max="1000000" step="0.01" required>
+<label for="loan-photos">Item photos (optional)</label><input id="loan-photos" name="photos" type="file" accept="image/jpeg,image/png" multiple aria-describedby="loan-photo-help">
+<p id="loan-photo-help">Up to 3 JPG or PNG photos, maximum 1 MB each. Photos are emailed with your inquiry. Do not upload IDs or sensitive documents.</p>
 <div hidden><label for="loan-website">Leave blank</label><input id="loan-website" name="website" tabindex="-1" autocomplete="off"></div>
 <button class="btn btn--gold" type="submit">Send loan request</button>
 <p id="loan-status" role="status" aria-live="polite"></p>

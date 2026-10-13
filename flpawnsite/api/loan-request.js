@@ -19,6 +19,22 @@ module.exports = async function handler(req, res) {
       typeof amount !== 'string' || !/^\d+(\.\d{1,2})?$/.test(amount) || Number(amount) < 1 || Number(amount) > 1000000) {
     return res.status(400).json({ error: 'Please check all fields' });
   }
+  const photos = body.photos === undefined ? [] : body.photos;
+  if (!Array.isArray(photos) || photos.length > 3) return res.status(400).json({ error: 'Invalid photos' });
+  const attachments = [];
+  for (const [index, photo] of photos.entries()) {
+    if (!photo || !['image/jpeg', 'image/png'].includes(photo.type) || typeof photo.content !== 'string' ||
+        !photo.content.length || photo.content.length > 1333336 ||
+        !/^(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?$/.test(photo.content)) {
+      return res.status(400).json({ error: 'Invalid photos' });
+    }
+    const bytes = Buffer.from(photo.content, 'base64');
+    const validSignature = photo.type === 'image/png'
+      ? bytes.subarray(0, 8).equals(Buffer.from([137,80,78,71,13,10,26,10]))
+      : bytes.length >= 3 && bytes[0] === 255 && bytes[1] === 216 && bytes[2] === 255;
+    if (!validSignature || bytes.length > 1000000) return res.status(400).json({ error: 'Invalid photos' });
+    attachments.push({ filename: `item-photo-${index + 1}.${photo.type === 'image/png' ? 'png' : 'jpg'}`, content: photo.content });
+  }
   const domain = process.env.RESEND_EMAIL_DOMAIN;
   if (!process.env.RESEND_API_KEY || !domain || !/^[a-z0-9.-]+$/i.test(domain)) {
     return res.status(503).json({ error: 'Email service unavailable' });
@@ -30,6 +46,7 @@ module.exports = async function handler(req, res) {
       body: JSON.stringify({
         from: `Florida Pawn <loans@${domain}>`, to: ['everyone@flpawn.com'], reply_to: email.trim(),
         subject: 'New pawn loan inquiry',
+        attachments,
         text: `Name: ${name.trim()}\nPhone: ${phone.trim()}\nEmail: ${email.trim()}\nRequested amount (USD): ${amount}\n\nItem description:\n${item.trim()}`
       }), signal: AbortSignal.timeout(15000)
     });
