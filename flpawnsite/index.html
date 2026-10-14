@@ -721,6 +721,25 @@ a:hover { text-decoration: underline; }
   .cat-grid { grid-template-columns: repeat(3, 1fr); }
 }
 </style>
+<style>
+#loan-request .loan-card{max-width:800px;margin:0 auto;padding:clamp(1.25rem,4vw,2.5rem);border:1px solid var(--border,#ddd);border-radius:12px;background:var(--card-bg,var(--bg,#fff))}
+#loan-request h2{margin-bottom:.75rem}
+#loan-request-form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.25rem;margin-top:1.75rem}
+#loan-request-form .loan-field{display:flex;flex-direction:column;gap:.5rem;min-width:0}
+#loan-request-form .loan-wide{grid-column:1/-1}
+#loan-request-form label{font-weight:600;font-size:.95rem}
+#loan-request-form input,#loan-request-form textarea{box-sizing:border-box;width:100%;min-height:48px;padding:.75rem;font:inherit;border:1px solid var(--border,#999);border-radius:6px;background:var(--bg,#fff);color:var(--fg,#222)}
+#loan-request-form textarea{min-height:130px;resize:vertical}
+#loan-request-form input:focus-visible,#loan-request-form textarea:focus-visible{outline:2px solid var(--gold,#c8a84b);outline-offset:2px}
+#loan-request-form input[type=file]{font-size:.9rem}
+#loan-request-form input::file-selector-button{padding:.5rem .75rem;margin-right:.75rem;border:0;border-radius:4px;background:var(--gold,#c8a84b);color:#1a1a2e;font:inherit;cursor:pointer}
+#loan-photo-help{font-size:.85rem;color:var(--fg-soft,inherit);margin:0}
+#loan-request-form button{justify-self:start;white-space:normal;min-height:48px}
+#loan-request-form button:disabled{opacity:.6}
+#loan-status{min-height:1.6em;margin:0}
+@media(max-width:600px){#loan-request-form{grid-template-columns:minmax(0,1fr)}#loan-request-form button{width:100%;justify-content:center}}
+</style>
+
 
 <!-- ===================== UTILITY BAR ===================== -->
 <div class="util-bar">
@@ -1408,6 +1427,23 @@ fpRender(0);fpUpdProg();
 
 <!-- ===================== FOOTER ===================== -->
 </main>
+<section class="section" id="loan-request" aria-labelledby="loan-request-title"><div class="wrap"><div class="loan-card">
+<h2 id="loan-request-title">Request a Pawn loan or Sell us your Item</h2>
+<p>Tell us about your item and we’ll contact you. This is an inquiry, not a loan approval. Do not include sensitive identification or financial details.</p>
+<form id="loan-request-form">
+<div class="loan-field"><label for="loan-name">Name</label><input id="loan-name" name="name" autocomplete="name" maxlength="100" required></div>
+<div class="loan-field"><label for="loan-phone">Phone number</label><input id="loan-phone" name="phone" type="tel" autocomplete="tel" maxlength="40" required></div>
+<div class="loan-field"><label for="loan-email">Email</label><input id="loan-email" name="email" type="email" autocomplete="email" maxlength="254" required></div>
+<div class="loan-field"><label for="loan-amount">Requested loan amount (USD)</label><input id="loan-amount" name="amount" type="number" min="1" max="1000000" step="0.01" required></div>
+<div class="loan-field loan-wide"><label for="loan-item">Item description</label><textarea id="loan-item" name="item" rows="4" maxlength="2000" required></textarea></div>
+<div class="loan-field loan-wide"><label for="loan-photos">Item photos (optional)</label><input id="loan-photos" name="photos" type="file" accept="image/jpeg,image/png" multiple aria-describedby="loan-photo-help">
+<p id="loan-photo-help">Up to 3 JPG or PNG photos, maximum 1 MB each. Photos are emailed with your inquiry. Do not upload IDs or sensitive documents.</p></div>
+<div hidden><label for="loan-website">Leave blank</label><input id="loan-website" name="website" tabindex="-1" autocomplete="off"></div>
+<button class="loan-wide btn btn--gold" type="submit">Send loan request</button>
+<p class="loan-wide" id="loan-status" role="status" aria-live="polite"></p>
+<noscript>Please enable JavaScript to submit, or call us using the phone numbers below.</noscript>
+</form></div></div></section>
+<script src="/loan-request.js" defer></script>
 <footer class="footer">
   <div class="wrap">
     <div class="footer__grid">
