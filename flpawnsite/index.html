@@ -720,6 +720,10 @@ a:hover { text-decoration: underline; }
   .footer__grid { grid-template-columns: 1fr; }
   .cat-grid { grid-template-columns: repeat(3, 1fr); }
 }
+.hero-shopping{display:flex;flex-wrap:wrap;gap:.75rem;margin-bottom:.5rem}
+.hero-shopping a:focus-visible{outline:2px solid var(--gold-light);outline-offset:4px}
+.hero-shopping__sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+@media(max-width:520px){.hero-shopping a{flex:1;justify-content:center}}
 </style>
 <style>
 #loan-request .loan-card{max-width:800px;margin:0 auto;padding:clamp(1.25rem,4vw,2.5rem);border:1px solid var(--border,#ddd);border-radius:12px;background:var(--card-bg,var(--bg,#fff))}
@@ -802,6 +806,10 @@ a:hover { text-decoration: underline; }
         </div>
       </div>
       <div class="hero__locs">
+        <nav class="hero-shopping" aria-label="Shop and connect">
+          <a href="https://www.ebay.com/str/floridaonlinedeals" target="_blank" rel="noopener" class="btn btn--gold">Shop on eBay <span aria-hidden="true">↗</span><span class="hero-shopping__sr"> (opens in a new tab)</span></a>
+          <a href="https://www.facebook.com/FloridaPawn" target="_blank" rel="noopener" class="btn btn--outline">Visit Facebook <span aria-hidden="true">↗</span><span class="hero-shopping__sr"> (opens in a new tab)</span></a>
+        </nav>
         <div class="hero-loc">
           <div>
             <div class="hero-loc__label">Hollywood, FL</div>
