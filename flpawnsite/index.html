@@ -720,8 +720,6 @@ a:hover { text-decoration: underline; }
   .footer__grid { grid-template-columns: 1fr; }
   .cat-grid { grid-template-columns: repeat(3, 1fr); }
 }
-
-#loan-request-form{display:grid;gap:.6rem;max-width:640px;margin-top:1.5rem}#loan-request-form input,#loan-request-form textarea{width:100%;font:inherit;padding:.75rem;border:1px solid var(--border,#ccc);border-radius:4px;background:var(--bg,#fff);color:var(--fg,#222)}#loan-request-form label{font-weight:600}#loan-request-form button{justify-self:start;margin-top:1rem}#loan-request-form button:disabled{opacity:.6}#loan-status{min-height:1.6em}
 </style>
 
 <!-- ===================== UTILITY BAR ===================== -->
@@ -809,11 +807,16 @@ a:hover { text-decoration: underline; }
 <!-- ===================== TRUST BAR ===================== -->
 <div class="trust-bar">
   <div class="trust-bar__inner">
-    <div class="trust-item"><span>★★★★★</span> 4.7-Star Rated</div>
+    <div class="trust-item" itemscope itemtype="https://schema.org/AggregateRating" itemprop="aggregateRating">
+      <span itemprop="ratingValue" content="4.7">★★★★★</span>
+      <span> 4.7 Stars</span>
+      <meta itemprop="reviewCount" content="405">
+      <meta itemprop="bestRating" content="5">
+    </div>
     <div class="trust-item"><span>⚡</span> Instant Cash Offers</div>
     <div class="trust-item"><span>🔒</span> Licensed &amp; Bonded</div>
     <div class="trust-item"><span>👨‍👩‍👧</span> Family Owned Since 1947</div>
-    <div class="trust-item"><span>📍</span> 2 Broward County Locations</div>
+    <div class="trust-item"><span>📍</span> <a href="location-hollywood.html" style="color:inherit">Hollywood</a> &amp; <a href="location-margate.html" style="color:inherit">Margate</a></div>
   </div>
 </div>
 
