@@ -44,7 +44,7 @@ module.exports = async function handler(req, res) {
       method: 'POST',
       headers: { Authorization: `Bearer ${process.env.RESEND_API_KEY}`, 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        from: `Florida Pawn <loans@${domain}>`, to: ['everyone@flpawn.com'], reply_to: email.trim(),
+        from: `Florida Pawn <loans@${domain}>`, to: ['everyone@flpawn.com', 'ryan@flpawn.com'], reply_to: email.trim(),
         subject: 'New pawn loan inquiry',
         attachments,
         text: `Name: ${name.trim()}\nPhone: ${phone.trim()}\nEmail: ${email.trim()}\nRequested amount (USD): ${amount}\n\nItem description:\n${item.trim()}`
