@@ -1407,24 +1407,6 @@ fpRender(0);fpUpdProg();
 </div>
 
 <!-- ===================== FOOTER ===================== -->
-
-<section class="section" id="loan-request" aria-labelledby="loan-request-title"><div class="wrap">
-<h2 id="loan-request-title">Request a Pawn loan or Sell us your Item</h2>
-<p>Tell us about your item and we’ll contact you. This is an inquiry, not a loan approval. Do not include sensitive identification or financial details.</p>
-<form id="loan-request-form">
-<label for="loan-name">Name</label><input id="loan-name" name="name" autocomplete="name" maxlength="100" required>
-<label for="loan-phone">Phone number</label><input id="loan-phone" name="phone" type="tel" autocomplete="tel" maxlength="40" required>
-<label for="loan-email">Email</label><input id="loan-email" name="email" type="email" autocomplete="email" maxlength="254" required>
-<label for="loan-item">Item description</label><textarea id="loan-item" name="item" rows="4" maxlength="2000" required></textarea>
-<label for="loan-amount">Requested loan amount (USD)</label><input id="loan-amount" name="amount" type="number" min="1" max="1000000" step="0.01" required>
-<label for="loan-photos">Item photos (optional)</label><input id="loan-photos" name="photos" type="file" accept="image/jpeg,image/png" multiple aria-describedby="loan-photo-help">
-<p id="loan-photo-help">Up to 3 JPG or PNG photos, maximum 1 MB each. Photos are emailed with your inquiry. Do not upload IDs or sensitive documents.</p>
-<div hidden><label for="loan-website">Leave blank</label><input id="loan-website" name="website" tabindex="-1" autocomplete="off"></div>
-<button class="btn btn--gold" type="submit">Send loan request</button>
-<p id="loan-status" role="status" aria-live="polite"></p>
-<noscript>Please enable JavaScript to submit, or call us using the phone numbers below.</noscript>
-</form></div></section>
-<script src="/loan-request.js" defer></script>
 </main>
 <footer class="footer">
   <div class="wrap">
