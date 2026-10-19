@@ -948,7 +948,12 @@ a:hover { text-decoration: underline; }
 .store-chooser h2 { margin-bottom: 1rem; }
 .store-chooser a, .store-chooser button { display: flex; align-items: center; justify-content: center; min-height: 48px; margin-top: .75rem; width: 100%; }
 @media (max-width: 900px) {
-  html { scroll-padding-top: 86px; }
+  .util-bar { display: none; }
+  .nav__inner { height: 60px; padding-inline: 1rem; }
+  .nav__logo { display: flex; align-items: center; min-width: 0; }
+  .nav__logo img { height: auto; width: min(210px, 65vw); }
+  .nav__mobile { padding-top: 76px; }
+  html { scroll-padding-top: 76px; }
   body { padding-bottom: calc(76px + env(safe-area-inset-bottom)); }
   #brand-film { padding-block: 1.5rem !important; }
   .faq-layout { grid-template-columns: minmax(0, 1fr) !important; gap: 1.5rem !important; }
@@ -967,7 +972,7 @@ a:hover { text-decoration: underline; }
   .hero__actions .btn { min-height: 48px; flex: 1 1 180px; justify-content: center; }
   .mobile-hero-action { display: inline-flex; }
   .nav__menu-btn { min-width: 44px; min-height: 44px; }
-  .nav__mobile { top: 0; padding-top: 90px; }
+  .nav__mobile { top: 0; }
   .mobile-actions { position: fixed; bottom: 0; left: 0; right: 0; z-index: 98; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .5rem; padding: .6rem .75rem calc(.6rem + env(safe-area-inset-bottom)); background: var(--navy); border-top: 2px solid var(--gold); }
   .mobile-actions a, .mobile-actions button { display: flex; justify-content: center; align-items: center; min-height: 48px; padding: .4rem; border: 1px solid var(--gold); border-radius: 4px; background: transparent; color: #fff; font: 600 .875rem var(--font-sans); text-decoration: none; cursor: pointer; }
   .mobile-actions a { background: var(--gold); color: var(--navy-dark); }

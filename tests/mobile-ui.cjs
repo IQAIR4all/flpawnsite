@@ -26,6 +26,8 @@ test('mobile contact actions, menu, consent and desktop visibility', async () =>
       await page.setViewportSize({ width, height: 844 });
       assert.equal(await page.locator('.mobile-actions').isVisible(), true);
       assert.equal(await page.locator('.hero__locs').isVisible(), true);
+      assert.equal(await page.locator('.util-bar').isVisible(), false);
+      assert.equal(await page.locator('.nav__inner').evaluate(el => el.getBoundingClientRect().height), 60);
       assert.equal(await page.locator('#brand-film').evaluate(el => el.previousElementSibling.id), 'loan-request');
       assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), true, `overflow at ${width}`);
       await page.locator('.mobile-actions button').first().click();
@@ -44,6 +46,7 @@ test('mobile contact actions, menu, consent and desktop visibility', async () =>
     assert.equal(await page.locator('.mobile-actions').isVisible(), false);
     assert.equal(await page.locator('.mobile-hero-action').isVisible(), false);
     assert.equal(await page.locator('.nav__links').isVisible(), true);
+    assert.equal(await page.locator('.util-bar').isVisible(), true);
     assert.equal(await page.locator('#brand-film').evaluate(el => el.nextElementSibling.id), 'services');
   } finally { await browser.close(); }
 });
