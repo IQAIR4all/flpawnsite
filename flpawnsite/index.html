@@ -986,13 +986,13 @@ a:hover { text-decoration: underline; }
 
   <!-- controls -->
   <div class="reel-controls">
-    <button class="reel-navbtn" onclick="fpScene(fpActive-1)" aria-label="Previous scene">
+    <button class="reel-navbtn" onclick="fpStep(-1)" aria-label="Previous scene">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="19,20 9,12 19,4"/><line x1="5" y1="4" x2="5" y2="20" stroke="currentColor" stroke-width="2"/></svg>
     </button>
     <button class="reel-pbtn" id="fpPlayBtn" onclick="fpPlay()" aria-label="Play">
       <svg id="fpPlayIco" width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
     </button>
-    <button class="reel-navbtn" onclick="fpScene(fpActive+1)" aria-label="Next scene">
+    <button class="reel-navbtn" onclick="fpStep(1)" aria-label="Next scene">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,4 15,12 5,20"/><line x1="19" y1="4" x2="19" y2="20" stroke="currentColor" stroke-width="2"/></svg>
     </button>
     <div class="reel-pinfo">
@@ -1003,7 +1003,7 @@ a:hover { text-decoration: underline; }
       <div class="reel-scrub-wrap">
         <input class="reel-scrub" id="fpScrub" type="range" min="0" max="30" step="0.1" value="0" aria-label="Playback position"
           oninput="fpScrubTo(this.value)"
-          onpointerdown="fpPlaying&&(fpPlaying=false,fpUpdIcon())">
+          onpointerdown="fpPause()">
         <div class="reel-marks" aria-hidden="true">
           <span style="left:23.33%"></span><span style="left:50%"></span><span style="left:76.67%"></span>
         </div>
@@ -1042,7 +1042,7 @@ function fpFmt(s){return'00:'+String(Math.floor(s)).padStart(2,'0')}
 function fpUpdIcon(){fpPlayIco.innerHTML=fpPlaying?'<rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/>':'<polygon points="5,3 19,12 5,21"/>'}
 function fpRender(i){
   const s=FP_S[i];fpActive=i;
-  const ni=fpImg.cloneNode(false);ni.src=s.img;fpImg.parentNode.replaceChild(ni,fpImg);
+  fpImg.src=s.img;
   fpIdx.innerHTML=(i+1>9?i+1:'0'+(i+1))+' <span>/ 04</span>';
   fpTagLbl.textContent=s.lbl;
   fpCopy.style.animation='none';fpCopy.offsetHeight;fpCopy.style.animation='';
@@ -1070,6 +1070,10 @@ window.fpPlay=function(){
   fpPlaying=!fpPlaying;fpUpdIcon();fpStartOv.style.display='none';fpEndOv.style.display='none';
   fpPlaying?fpTimer=setInterval(fpTick,100):clearInterval(fpTimer);
 };
+window.fpPause=function(){
+  fpPlaying=false;clearInterval(fpTimer);fpUpdIcon();
+};
+window.fpStep=function(delta){fpScene(fpActive+delta)};
 window.fpScene=function(i){
   if(i<0||i>=4)return;fpPlaying=false;clearInterval(fpTimer);fpUpdIcon();
   fpT=FP_S[i].start;fpRender(i);fpUpdProg();fpEndOv.style.display='none';fpStartOv.style.display='none';
