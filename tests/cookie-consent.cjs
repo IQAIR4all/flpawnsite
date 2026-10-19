@@ -52,10 +52,18 @@ test('every published page includes shared assets and no legacy notice or active
   for (const file of fs.readdirSync(root).filter(f => f.endsWith('.html'))) {
     const doc = new JSDOM(fs.readFileSync(path.join(root, file), 'utf8')).window.document;
     assert.equal(doc.querySelectorAll('script[src="cookie-consent.js"]').length, 1, file);
-    assert.equal(doc.querySelectorAll('link[href="cookie-consent.css"]').length, 1, file);
+    assert.equal(doc.querySelectorAll('link[href="cookie-consent.css"]').length, 0, file);
     assert.equal(doc.querySelectorAll('#cookie-banner, [onclick="dismissCookie()"]').length, 0, file);
     for (const script of doc.scripts) {
       assert.doesNotMatch(script.src + script.textContent, /googletagmanager|google-analytics|gtag\(/i, file);
     }
   }
+});
+
+test('deferred consent script installs matching styles before displaying the banner', () => {
+  const w = setup();
+  const styles = w.document.querySelector('style[data-cookie-consent-styles]');
+  assert.ok(styles);
+  assert.equal(styles.textContent, fs.readFileSync(path.join(root, 'cookie-consent.css'), 'utf8'));
+  assert.equal(w.document.querySelector('.cookie-consent').hidden, false);
 });

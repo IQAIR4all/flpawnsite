@@ -5,6 +5,12 @@
   try { choice = localStorage.getItem(key); } catch (error) { /* Ask again when storage is unavailable. */ }
   if (choice !== 'accepted' && choice !== 'rejected') choice = null;
 
+  // Install styles before creating the banner, without blocking initial page rendering.
+  var styles = document.createElement('style');
+  styles.setAttribute('data-cookie-consent-styles', '');
+  styles.textContent = ".cookie-consent[hidden] { display: none; }\n.cookie-consent {\n  position: fixed;\n  bottom: 0;\n  left: 0;\n  right: 0;\n  z-index: 9999;\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  flex-wrap: wrap;\n  gap: 1rem;\n  max-height: 80vh;\n  overflow-y: auto;\n  padding: 1rem 1.25rem;\n  background: #1e2b3c;\n  color: #f0f4f8;\n  border-top: 2px solid #c8a84b;\n  box-shadow: 0 -2px 12px rgba(0,0,0,.3);\n  font: .9rem/1.5 Inter, sans-serif;\n}\n.cookie-consent p { margin: 0; max-width: 70ch; color: inherit; font: inherit; }\n.cookie-consent a { color: #e3c56b; text-decoration: underline; }\n.cookie-consent__actions { display: flex; flex-wrap: wrap; gap: .75rem; }\n.cookie-consent button {\n  min-width: 100px;\n  min-height: 44px;\n  padding: .6rem 1.1rem;\n  border: 1px solid #c8a84b;\n  border-radius: 4px;\n  background: #c8a84b;\n  color: #1e2b3c;\n  font: 600 .9rem/1.4 Inter, sans-serif;\n  cursor: pointer;\n}\n.cookie-settings { background: none; border: 0; padding: .65rem 0; color: #e3c56b; font: inherit; text-decoration: underline; cursor: pointer; }\n.cookie-consent button:focus-visible, .cookie-consent a:focus-visible, .cookie-settings:focus-visible { outline: 2px solid #fff; outline-offset: 4px; }\n@media (max-width: 520px) {\n  .cookie-consent__actions { width: 100%; }\n  .cookie-consent button { flex: 1; }\n}\n";
+  document.head.appendChild(styles);
+
   var banner = document.createElement('section');
   banner.className = 'cookie-consent';
   banner.setAttribute('aria-label', 'Cookie preferences');
