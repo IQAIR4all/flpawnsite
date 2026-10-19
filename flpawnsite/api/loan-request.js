@@ -35,7 +35,7 @@ module.exports = async function handler(req, res) {
     if (!validSignature || bytes.length > 1000000) return res.status(400).json({ error: 'Invalid photos' });
     attachments.push({ filename: `item-photo-${index + 1}.${photo.type === 'image/png' ? 'png' : 'jpg'}`, content: photo.content });
   }
-  const domain = process.env.RESEND_EMAIL_DOMAIN;
+  const domain = 'flpawn.com';
   if (!process.env.RESEND_API_KEY || !domain || !/^[a-z0-9.-]+$/i.test(domain)) {
     return res.status(503).json({ error: 'Email service unavailable' });
   }
