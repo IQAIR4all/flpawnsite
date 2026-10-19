@@ -774,7 +774,7 @@ a:hover { text-decoration: underline; }
       <li><a href="faq.html">FAQ</a></li>
     </ul>
     <a href="tel:+19543537296" class="btn btn--gold nav__cta">Call Now</a>
-    <button class="nav__menu-btn" aria-label="Open menu" onclick="toggleMenu()">
+    <button class="nav__menu-btn" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu" onclick="toggleMenu()">
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
       </svg>
@@ -786,9 +786,8 @@ a:hover { text-decoration: underline; }
   <a href="services.html" onclick="closeMenu()">Services</a>
   <a href="how-it-works.html" onclick="closeMenu()">How It Works</a>
   <a href="#locations" onclick="closeMenu()">Locations</a>
-  <a href="#about" onclick="closeMenu()">About</a>
-  <a href="#faq" onclick="closeMenu()">FAQ</a>
-  <a href="faq.html" onclick="closeMenu()">FAQ</a><a href="blog.html" onclick="closeMenu()">Blog</a>
+  <a href="#loan-request" onclick="closeMenu()">Loan Inquiry</a>
+  <a href="faq.html" onclick="closeMenu()">FAQ</a>
   <a href="tel:+19543537296" onclick="closeMenu()" style="color:var(--gold-light)">📞 Hollywood: (954) 353-7296</a>
   <a href="tel:+17549995626" onclick="closeMenu()" style="color:var(--gold-light)">📞 Margate: (754) 999-5626</a>
 </div>
@@ -802,6 +801,7 @@ a:hover { text-decoration: underline; }
         <h1>Fast Cash for Your <em>Valuables</em> — Two Locations</h1>
         <p class="hero__sub">Pawn loans, buying, selling, and trading in Hollywood and Margate, FL. No appointment needed. Walk in, get a free appraisal, and leave with cash today.</p>
         <div class="hero__actions">
+          <a href="#loan-request" class="btn btn--gold mobile-hero-action">Request a Loan</a>
           <a href="#locations" class="btn btn--gold">Find Your Location</a>
           <a href="how-it-works.html" class="btn btn--outline">How It Works</a>
         </div>
@@ -940,6 +940,54 @@ a:hover { text-decoration: underline; }
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
 </style>
 
+<style>
+/* Mobile action-first layout; desktop presentation is unchanged. */
+.mobile-actions, .mobile-hero-action { display: none; }
+.store-chooser { margin: auto; width: min(90vw, 420px); padding: 1.5rem; border: 1px solid var(--border); border-radius: 12px; background: var(--bg); color: var(--fg); }
+.store-chooser::backdrop { background: rgb(0 0 0 / .6); }
+.store-chooser h2 { margin-bottom: 1rem; }
+.store-chooser a, .store-chooser button { display: flex; align-items: center; justify-content: center; min-height: 48px; margin-top: .75rem; width: 100%; }
+@media (max-width: 900px) {
+  html { scroll-padding-top: 86px; }
+  body { padding-bottom: calc(76px + env(safe-area-inset-bottom)); }
+  #brand-film { padding-block: 1.5rem !important; }
+  .faq-layout { grid-template-columns: minmax(0, 1fr) !important; gap: 1.5rem !important; }
+  .visual-icon { max-width: 100%; overflow-wrap: anywhere; }
+  .util-bar__links { flex-wrap: wrap; gap: .5rem 1rem; }
+  .split, .hero__inner, .loc-cards { grid-template-columns: minmax(0, 1fr); }
+  .split > *, .cat-tile { min-width: 0; }
+  .cat-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .cat-tile { overflow-wrap: anywhere; }
+  .hero { padding-block: 1.75rem; }
+  .hero__inner { gap: 1.5rem; }
+  .hero__locs { display: flex; gap: .75rem; }
+  .hero-loc { padding: .85rem; flex-wrap: wrap; gap: .5rem; }
+  .hero-loc__phone { font-size: 1rem; min-height: 44px; display: inline-flex; align-items: center; }
+  .hero__actions { gap: .6rem; }
+  .hero__actions .btn { min-height: 48px; flex: 1 1 180px; justify-content: center; }
+  .mobile-hero-action { display: inline-flex; }
+  .nav__menu-btn { min-width: 44px; min-height: 44px; }
+  .nav__mobile { top: 0; padding-top: 90px; }
+  .mobile-actions { position: fixed; bottom: 0; left: 0; right: 0; z-index: 98; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .5rem; padding: .6rem .75rem calc(.6rem + env(safe-area-inset-bottom)); background: var(--navy); border-top: 2px solid var(--gold); }
+  .mobile-actions a, .mobile-actions button { display: flex; justify-content: center; align-items: center; min-height: 48px; padding: .4rem; border: 1px solid var(--gold); border-radius: 4px; background: transparent; color: #fff; font: 600 .875rem var(--font-sans); text-decoration: none; cursor: pointer; }
+  .mobile-actions a { background: var(--gold); color: var(--navy-dark); }
+  body:has(.cookie-consent:not([hidden])) .mobile-actions,
+  body:has(.nav__mobile.open) .mobile-actions { display: none; }
+  .reel-controls { gap: 4px; }
+  .reel-pbtn, .reel-navbtn, .reel-rbtn { width: 44px; height: 44px; flex-shrink: 0; }
+  .reel-scrub { height: 24px; }
+  .reel-marks { display: none; }
+  .reel-captions { font-size: 14px; }
+  .reel-stage { min-height: 380px; }
+  .reel-ctitle { font-size: 12px; }
+  .reel-ctime { font-size: 11px; }
+}
+@media (max-width: 520px) {
+  .hero__eyebrow { font-size: .7rem; }
+  .hero__sub { font-size: 1rem; }
+  .hero-loc__address { font-size: .875rem; }
+}
+</style>
 <div class="reel-shell">
   <!-- topline -->
   <div class="reel-topline">
@@ -1361,7 +1409,7 @@ fpRender(0);fpUpdProg();
 <!-- ===================== FAQ ===================== -->
 <section class="section section--soft" id="faq">
   <div class="wrap">
-    <div style="display:grid;grid-template-columns:1fr 2fr;gap:3rem;align-items:start;">
+    <div class="faq-layout" style="display:grid;grid-template-columns:1fr 2fr;gap:3rem;align-items:start;">
       <div>
         <span class="eyebrow">Common Questions</span>
         <h2>Frequently Asked Questions</h2>
@@ -1698,9 +1746,53 @@ fpRender(0);fpUpdProg();
   }
 ]</script>
 
+
+<nav class="mobile-actions" aria-label="Quick contact">
+  <button type="button" onclick="chooseStore('call')" aria-haspopup="dialog">Call</button>
+  <button type="button" onclick="chooseStore('directions')" aria-haspopup="dialog">Directions</button>
+  <a href="#loan-request">Loan Inquiry</a>
+</nav>
+<dialog class="store-chooser" id="storeChooser" aria-labelledby="storeChooserTitle">
+  <h2 id="storeChooserTitle">Choose your store</h2>
+  <a class="btn btn--navy" href="tel:+19543537296" data-phone="tel:+19543537296" data-directions="https://www.google.com/maps/dir/?api=1&amp;destination=1944+Hollywood+Blvd+Hollywood+FL+33020">Hollywood</a>
+  <a class="btn btn--navy" href="tel:+17549995626" data-phone="tel:+17549995626" data-directions="https://www.google.com/maps/dir/?api=1&amp;destination=1303+FL-7+Margate+FL+33063">Margate</a>
+  <form method="dialog"><button class="btn btn--navy">Close</button></form>
+</dialog>
+
 <script>
-const toggleMenu = () => document.getElementById('mobileMenu').classList.toggle('open');
-const closeMenu = () => document.getElementById('mobileMenu').classList.remove('open');
+// Move the actual section so keyboard and screen-reader order follows the layout.
+const film = document.getElementById('brand-film');
+const filmHome = document.createComment('Desktop film position');
+film.before(filmHome);
+const mobileLayout = window.matchMedia('(max-width: 900px)');
+const arrangeFilm = () => {
+  if (mobileLayout.matches) document.getElementById('loan-request').after(film);
+  else filmHome.after(film);
+};
+mobileLayout.addEventListener('change', arrangeFilm);
+arrangeFilm();
+const setMenu = open => {
+  document.getElementById('mobileMenu').classList.toggle('open', open);
+  const button = document.querySelector('.nav__menu-btn');
+  button.setAttribute('aria-expanded', String(open));
+  button.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+};
+const toggleMenu = () => setMenu(!document.getElementById('mobileMenu').classList.contains('open'));
+const closeMenu = () => setMenu(false);
+document.addEventListener('keydown', event => {
+  if (event.key === 'Escape' && document.getElementById('mobileMenu').classList.contains('open')) {
+    closeMenu();
+    document.querySelector('.nav__menu-btn').focus();
+  }
+});
+function chooseStore(action) {
+  const dialog = document.getElementById('storeChooser');
+  document.getElementById('storeChooserTitle').textContent = action === 'call' ? 'Call your store' : 'Directions to your store';
+  dialog.querySelectorAll('[data-phone]').forEach(link => {
+    link.href = action === 'call' ? link.dataset.phone : link.dataset.directions;
+  });
+  dialog.showModal();
+}
 const toggleFaq = (btn) => {
   const item = btn.closest('.faq-item');
   const isOpen = item.classList.contains('open');
