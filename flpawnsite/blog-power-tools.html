@@ -160,7 +160,12 @@
     padding: 1rem 1.25rem;
     margin: 1.5rem 0;
   }
-  .tip-box strong { color: var(--gold); display: block; margin-bottom: .3rem; font-size: .85rem; letter-spacing: .05em; text-transform: uppercase; }
+  .tip-box strong { color: #7a6020; display: block; margin-bottom: .3rem; font-size: .85rem; letter-spacing: .05em; text-transform: uppercase; }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .tip-box strong { color: var(--gold-light); } }
+  :root[data-theme="dark"] .tip-box strong { color: var(--gold-light); }
+  .loc-card strong { display: block; margin-bottom: .25rem; color: #7a6020; font-size: .95rem; }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .loc-card strong { color: var(--gold-light); } }
+  :root[data-theme="dark"] .loc-card strong { color: var(--gold-light); }
 
   /* CTA block */
   .cta-block {
@@ -216,7 +221,6 @@
     border-radius: 8px;
     padding: 1rem;
   }
-  .loc-card strong { display: block; margin-bottom: .25rem; color: var(--gold); font-size: .95rem; }
   .loc-card span { font-size: .875rem; color: var(--muted); }
 
   /* Footer */
@@ -246,7 +250,7 @@
   <p class="hero-meta">Published by <span>Florida Pawn</span> &nbsp;·&nbsp; Hollywood &amp; Margate, FL</p>
 </div>
 
-<article class="article-wrap">
+<main><article class="article-wrap">
 
   <p class="lead">
     Got a garage full of tools you're not using? Florida Pawn pays top dollar for power tools at our Hollywood and Margate locations — all brands, all conditions (as long as they work). Walk in today and walk out with cash.
@@ -359,7 +363,7 @@
     </div>
   </div>
 
-</article>
+</article></main>
 
 <footer class="site-footer">
   &copy; 2026 Florida Pawn &nbsp;&middot;&nbsp;
