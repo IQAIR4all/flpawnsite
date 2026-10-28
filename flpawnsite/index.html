@@ -4,7 +4,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
 <meta name="description" content="Florida Pawn buys, sells, and offers pawn loans on gold, jewelry, diamonds, watches, electronics, and more. Two Broward County locations in Hollywood and Margate FL. Walk in, no appointment needed.">
 <link rel="canonical" href="https://fla-pawn.com/">
-<meta property="og:type" content="website">
+<meta property="og:type" content="local_business">
 <meta property="og:title" content="Florida Pawn — Hollywood & Margate FL | Pawn Loans, Gold, Jewelry & Electronics">
 <meta property="og:description" content="Florida Pawn buys, sells, and offers pawn loans on gold, jewelry, diamonds, watches, electronics, and more. Two Broward County locations in Hollywood and Margate FL. Walk in, no appointment needed.">
 <meta property="og:url" content="https://fla-pawn.com/">
@@ -13,6 +13,18 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Florida Pawn — Hollywood & Margate FL | Pawn Loans, Gold, Jewelry & Electronics">
 <meta name="twitter:description" content="Florida Pawn buys, sells, and offers pawn loans on gold, jewelry, diamonds, watches, electronics, and more. Two Broward County locations in Hollywood and Margate FL. Walk in, no appointment needed.">
+<meta name="author" content="Florida Pawn">
+<meta name="geo.region" content="US-FL">
+<meta name="geo.placename" content="Hollywood & Margate, FL">
+<meta name="geo.position" content="26.0112;-80.1495">
+<meta name="ICBM" content="26.0112, -80.1495">
+<meta property="article:modified_time" content="2026-10-13T00:00:00-04:00">
+<meta property="business:contact_data:street_address" content="1944 Hollywood Blvd">
+<meta property="business:contact_data:locality" content="Hollywood">
+<meta property="business:contact_data:region" content="FL">
+<meta property="business:contact_data:postal_code" content="33020">
+<meta property="business:contact_data:country_name" content="United States">
+<meta property="business:contact_data:phone_number" content="+19543537296">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" media="print" onload="this.media='all'">
@@ -720,30 +732,7 @@ a:hover { text-decoration: underline; }
   .footer__grid { grid-template-columns: 1fr; }
   .cat-grid { grid-template-columns: repeat(3, 1fr); }
 }
-.hero-shopping{display:flex;flex-wrap:wrap;gap:.75rem;margin-bottom:.5rem}
-.hero-shopping a:focus-visible{outline:2px solid var(--gold-light);outline-offset:4px}
-.hero-shopping__sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
-@media(max-width:520px){.hero-shopping a{flex:1;justify-content:center}}
 </style>
-<style>
-#loan-request .loan-card{max-width:800px;margin:0 auto;padding:clamp(1.25rem,4vw,2.5rem);border:1px solid var(--border,#ddd);border-radius:12px;background:var(--card-bg,var(--bg,#fff))}
-#loan-request h2{margin-bottom:.75rem}
-#loan-request-form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.25rem;margin-top:1.75rem}
-#loan-request-form .loan-field{display:flex;flex-direction:column;gap:.5rem;min-width:0}
-#loan-request-form .loan-wide{grid-column:1/-1}
-#loan-request-form label{font-weight:600;font-size:.95rem}
-#loan-request-form input,#loan-request-form textarea{box-sizing:border-box;width:100%;min-height:48px;padding:.75rem;font:inherit;border:1px solid var(--border,#999);border-radius:6px;background:var(--bg,#fff);color:var(--fg,#222)}
-#loan-request-form textarea{min-height:130px;resize:vertical}
-#loan-request-form input:focus-visible,#loan-request-form textarea:focus-visible{outline:2px solid var(--gold,#c8a84b);outline-offset:2px}
-#loan-request-form input[type=file]{font-size:.9rem}
-#loan-request-form input::file-selector-button{padding:.5rem .75rem;margin-right:.75rem;border:0;border-radius:4px;background:var(--gold,#c8a84b);color:#1a1a2e;font:inherit;cursor:pointer}
-#loan-photo-help{font-size:.85rem;color:var(--fg-soft,inherit);margin:0}
-#loan-request-form button{justify-self:start;white-space:normal;min-height:48px}
-#loan-request-form button:disabled{opacity:.6}
-#loan-status{min-height:1.6em;margin:0}
-@media(max-width:600px){#loan-request-form{grid-template-columns:minmax(0,1fr)}#loan-request-form button{width:100%;justify-content:center}}
-</style>
-
 
 <!-- ===================== UTILITY BAR ===================== -->
 <div class="util-bar">
@@ -773,7 +762,7 @@ a:hover { text-decoration: underline; }
       <li><a href="faq.html">FAQ</a></li>
     </ul>
     <a href="tel:+19543537296" class="btn btn--gold nav__cta">Call Now</a>
-    <button class="nav__menu-btn" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu" onclick="toggleMenu()">
+    <button class="nav__menu-btn" aria-label="Open menu" onclick="toggleMenu()">
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
       </svg>
@@ -785,8 +774,9 @@ a:hover { text-decoration: underline; }
   <a href="services.html" onclick="closeMenu()">Services</a>
   <a href="how-it-works.html" onclick="closeMenu()">How It Works</a>
   <a href="#locations" onclick="closeMenu()">Locations</a>
-  <a href="#loan-request" onclick="closeMenu()">Loan Inquiry</a>
-  <a href="faq.html" onclick="closeMenu()">FAQ</a>
+  <a href="#about" onclick="closeMenu()">About</a>
+  <a href="#faq" onclick="closeMenu()">FAQ</a>
+  <a href="faq.html" onclick="closeMenu()">FAQ</a><a href="blog.html" onclick="closeMenu()">Blog</a>
   <a href="tel:+19543537296" onclick="closeMenu()" style="color:var(--gold-light)">📞 Hollywood: (954) 353-7296</a>
   <a href="tel:+17549995626" onclick="closeMenu()" style="color:var(--gold-light)">📞 Margate: (754) 999-5626</a>
 </div>
@@ -800,16 +790,11 @@ a:hover { text-decoration: underline; }
         <h1>Fast Cash for Your <em>Valuables</em> — Two Locations</h1>
         <p class="hero__sub">Pawn loans, buying, selling, and trading in Hollywood and Margate, FL. No appointment needed. Walk in, get a free appraisal, and leave with cash today.</p>
         <div class="hero__actions">
-          <a href="#loan-request" class="btn btn--gold mobile-hero-action">Request a Loan</a>
           <a href="#locations" class="btn btn--gold">Find Your Location</a>
           <a href="how-it-works.html" class="btn btn--outline">How It Works</a>
         </div>
       </div>
       <div class="hero__locs">
-        <nav class="hero-shopping" aria-label="Shop and connect">
-          <a href="https://www.ebay.com/str/floridaonlinedeals" target="_blank" rel="noopener" class="btn btn--gold">Shop on eBay <span aria-hidden="true">↗</span><span class="hero-shopping__sr"> (opens in a new tab)</span></a>
-          <a href="https://www.facebook.com/FloridaPawn" target="_blank" rel="noopener" class="btn btn--outline">Visit Facebook <span aria-hidden="true">↗</span><span class="hero-shopping__sr"> (opens in a new tab)</span></a>
-        </nav>
         <div class="hero-loc">
           <div>
             <div class="hero-loc__label">Hollywood, FL</div>
@@ -939,65 +924,6 @@ a:hover { text-decoration: underline; }
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
 </style>
 
-<style>
-/* Mobile action-first layout; desktop presentation is unchanged. */
-.mobile-actions, .mobile-hero-action { display: none; }
-.store-chooser { margin: auto; width: min(90vw, 420px); padding: 1.5rem; border: 1px solid var(--border); border-radius: 12px; background: var(--bg); color: var(--fg); }
-.store-chooser::backdrop { background: rgb(0 0 0 / .6); }
-.store-chooser h2 { margin-bottom: 1rem; }
-.store-chooser a, .store-chooser button { display: flex; align-items: center; justify-content: center; min-height: 48px; margin-top: .75rem; width: 100%; }
-@media (max-width: 900px) {
-  .util-bar { display: none; }
-  .nav__inner { height: 60px; padding-inline: 1rem; }
-  .nav__logo { display: flex; align-items: center; min-width: 0; }
-  .nav__logo img { height: auto; width: min(210px, 65vw); }
-  .nav__mobile { padding-top: 76px; }
-  html { scroll-padding-top: 76px; }
-  body { padding-bottom: calc(76px + env(safe-area-inset-bottom)); }
-  #brand-film { padding-block: 1.5rem !important; }
-  .faq-layout { grid-template-columns: minmax(0, 1fr) !important; gap: 1.5rem !important; }
-  .visual-icon { max-width: 100%; overflow-wrap: anywhere; }
-  .util-bar__links { flex-wrap: wrap; gap: .5rem 1rem; }
-  .split, .hero__inner, .loc-cards { grid-template-columns: minmax(0, 1fr); }
-  .split > *, .cat-tile { min-width: 0; }
-  .cat-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-  .cat-tile { overflow-wrap: anywhere; }
-  .hero { padding-block: 1.75rem; }
-  .hero__inner { gap: 1.5rem; }
-  .hero__locs { display: flex; gap: .75rem; }
-  .hero-loc { padding: .85rem; flex-wrap: wrap; gap: .5rem; }
-  .hero-loc__phone { font-size: 1rem; min-height: 44px; display: inline-flex; align-items: center; }
-  .hero__actions { gap: .6rem; }
-  .hero__actions .btn { min-height: 48px; flex: 1 1 180px; justify-content: center; }
-  .mobile-hero-action { display: inline-flex; }
-  .nav__menu-btn { min-width: 44px; min-height: 44px; }
-  .nav__mobile { top: 0; }
-  .mobile-actions { position: fixed; bottom: 0; left: 0; right: 0; z-index: 98; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .5rem; padding: .6rem .75rem calc(.6rem + env(safe-area-inset-bottom)); background: var(--navy); border-top: 2px solid var(--gold); }
-  .mobile-actions a, .mobile-actions button { display: flex; justify-content: center; align-items: center; min-height: 48px; padding: .4rem; border: 1px solid var(--gold); border-radius: 4px; background: transparent; color: #fff; font: 600 .875rem var(--font-sans); text-decoration: none; cursor: pointer; }
-  .mobile-actions a { background: var(--gold); color: var(--navy-dark); }
-  body:has(.cookie-consent:not([hidden])) .mobile-actions,
-  body:has(.nav__mobile.open) .mobile-actions { display: none; }
-  .reel-controls { gap: 4px; }
-  .reel-pbtn, .reel-navbtn, .reel-rbtn { width: 44px; height: 44px; flex-shrink: 0; }
-  .reel-scrub { height: 24px; }
-  .reel-marks { display: none; }
-  .reel-captions { font-size: 14px; }
-  .reel-stage { min-height: 380px; }
-  .reel-ctitle { font-size: 12px; }
-  .reel-ctime { font-size: 11px; }
-}
-@media (max-width: 520px) {
-  .hero__eyebrow { font-size: .7rem; }
-  .hero__sub { font-size: 1rem; }
-  .hero-loc__address { font-size: .875rem; }
-}
-</style>
-
-<script>
-  window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
-</script>
-<script defer src="/_vercel/insights/script.js"></script>
-
 <div class="reel-shell">
   <!-- topline -->
   <div class="reel-topline">
@@ -1044,13 +970,13 @@ a:hover { text-decoration: underline; }
 
   <!-- controls -->
   <div class="reel-controls">
-    <button class="reel-navbtn" onclick="fpStep(-1)" aria-label="Previous scene">
+    <button class="reel-navbtn" onclick="fpScene(fpActive-1)" aria-label="Previous scene">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="19,20 9,12 19,4"/><line x1="5" y1="4" x2="5" y2="20" stroke="currentColor" stroke-width="2"/></svg>
     </button>
     <button class="reel-pbtn" id="fpPlayBtn" onclick="fpPlay()" aria-label="Play">
       <svg id="fpPlayIco" width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
     </button>
-    <button class="reel-navbtn" onclick="fpStep(1)" aria-label="Next scene">
+    <button class="reel-navbtn" onclick="fpScene(fpActive+1)" aria-label="Next scene">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,4 15,12 5,20"/><line x1="19" y1="4" x2="19" y2="20" stroke="currentColor" stroke-width="2"/></svg>
     </button>
     <div class="reel-pinfo">
@@ -1061,7 +987,7 @@ a:hover { text-decoration: underline; }
       <div class="reel-scrub-wrap">
         <input class="reel-scrub" id="fpScrub" type="range" min="0" max="30" step="0.1" value="0" aria-label="Playback position"
           oninput="fpScrubTo(this.value)"
-          onpointerdown="fpPause()">
+          onpointerdown="fpPlaying&&(fpPlaying=false,fpUpdIcon())">
         <div class="reel-marks" aria-hidden="true">
           <span style="left:23.33%"></span><span style="left:50%"></span><span style="left:76.67%"></span>
         </div>
@@ -1100,7 +1026,7 @@ function fpFmt(s){return'00:'+String(Math.floor(s)).padStart(2,'0')}
 function fpUpdIcon(){fpPlayIco.innerHTML=fpPlaying?'<rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/>':'<polygon points="5,3 19,12 5,21"/>'}
 function fpRender(i){
   const s=FP_S[i];fpActive=i;
-  fpImg.src=s.img;
+  const ni=fpImg.cloneNode(false);ni.src=s.img;fpImg.parentNode.replaceChild(ni,fpImg);
   fpIdx.innerHTML=(i+1>9?i+1:'0'+(i+1))+' <span>/ 04</span>';
   fpTagLbl.textContent=s.lbl;
   fpCopy.style.animation='none';fpCopy.offsetHeight;fpCopy.style.animation='';
@@ -1128,10 +1054,6 @@ window.fpPlay=function(){
   fpPlaying=!fpPlaying;fpUpdIcon();fpStartOv.style.display='none';fpEndOv.style.display='none';
   fpPlaying?fpTimer=setInterval(fpTick,100):clearInterval(fpTimer);
 };
-window.fpPause=function(){
-  fpPlaying=false;clearInterval(fpTimer);fpUpdIcon();
-};
-window.fpStep=function(delta){fpScene(fpActive+delta)};
 window.fpScene=function(i){
   if(i<0||i>=4)return;fpPlaying=false;clearInterval(fpTimer);fpUpdIcon();
   fpT=FP_S[i].start;fpRender(i);fpUpdProg();fpEndOv.style.display='none';fpStartOv.style.display='none';
@@ -1419,7 +1341,7 @@ fpRender(0);fpUpdProg();
 <!-- ===================== FAQ ===================== -->
 <section class="section section--soft" id="faq">
   <div class="wrap">
-    <div class="faq-layout" style="display:grid;grid-template-columns:1fr 2fr;gap:3rem;align-items:start;">
+    <div style="display:grid;grid-template-columns:1fr 2fr;gap:3rem;align-items:start;">
       <div>
         <span class="eyebrow">Common Questions</span>
         <h2>Frequently Asked Questions</h2>
@@ -1498,23 +1420,6 @@ fpRender(0);fpUpdProg();
 
 <!-- ===================== FOOTER ===================== -->
 </main>
-<section class="section" id="loan-request" aria-labelledby="loan-request-title"><div class="wrap"><div class="loan-card">
-<h2 id="loan-request-title">Request a Pawn loan or Sell us your Item</h2>
-<p>Tell us about your item and we’ll contact you. This is an inquiry, not a loan approval. Do not include sensitive identification or financial details.</p>
-<form id="loan-request-form">
-<div class="loan-field"><label for="loan-name">Name</label><input id="loan-name" name="name" autocomplete="name" maxlength="100" required></div>
-<div class="loan-field"><label for="loan-phone">Phone number</label><input id="loan-phone" name="phone" type="tel" autocomplete="tel" maxlength="40" required></div>
-<div class="loan-field"><label for="loan-email">Email</label><input id="loan-email" name="email" type="email" autocomplete="email" maxlength="254" required></div>
-<div class="loan-field"><label for="loan-amount">Requested loan amount (USD)</label><input id="loan-amount" name="amount" type="number" min="1" max="1000000" step="0.01" required></div>
-<div class="loan-field loan-wide"><label for="loan-item">Item description</label><textarea id="loan-item" name="item" rows="4" maxlength="2000" required></textarea></div>
-<div class="loan-field loan-wide"><label for="loan-photos">Item photos (optional)</label><input id="loan-photos" name="photos" type="file" accept="image/jpeg,image/png" multiple aria-describedby="loan-photo-help">
-<p id="loan-photo-help">Up to 3 JPG or PNG photos, maximum 1 MB each. Photos are emailed with your inquiry. Do not upload IDs or sensitive documents.</p></div>
-<div hidden><label for="loan-website">Leave blank</label><input id="loan-website" name="website" tabindex="-1" autocomplete="off"></div>
-<button class="loan-wide btn btn--gold" type="submit">Send loan request</button>
-<p class="loan-wide" id="loan-status" role="status" aria-live="polite"></p>
-<noscript>Please enable JavaScript to submit, or call us using the phone numbers below.</noscript>
-</form></div></div></section>
-<script src="/loan-request.js" defer></script>
 <footer class="footer">
   <div class="wrap">
     <div class="footer__grid">
@@ -1558,7 +1463,7 @@ fpRender(0);fpUpdProg();
       </div>
     </div>
     <div class="footer__bottom">
-      <p>© 2024 Florida Pawn. Licensed Florida Pawnbroker. All rights reserved.&nbsp;&nbsp;·&nbsp;&nbsp;<a href="privacy-policy.html">Privacy Policy</a>&nbsp;&nbsp;·&nbsp;&nbsp;<a href="terms-and-conditions.html">Terms &amp; Conditions</a></p>
+      <p>© 2024 Florida Pawn. Licensed Florida Pawnbroker. All rights reserved. &nbsp;&nbsp;&middot;&nbsp;&nbsp;<a href="privacy-policy.html" style="color:inherit">Privacy Policy</a>&nbsp;&nbsp;&middot;&nbsp;&nbsp;<a href="terms-and-conditions.html" style="color:inherit">Terms &amp; Conditions</a></p>
       <p>fla-pawn.com</p>
     </div>
   </div>
@@ -1756,53 +1661,9 @@ fpRender(0);fpUpdProg();
   }
 ]</script>
 
-
-<nav class="mobile-actions" aria-label="Quick contact">
-  <button type="button" onclick="chooseStore('call')" aria-haspopup="dialog">Call</button>
-  <button type="button" onclick="chooseStore('directions')" aria-haspopup="dialog">Directions</button>
-  <a href="#loan-request">Loan Inquiry</a>
-</nav>
-<dialog class="store-chooser" id="storeChooser" aria-labelledby="storeChooserTitle">
-  <h2 id="storeChooserTitle">Choose your store</h2>
-  <a class="btn btn--navy" href="tel:+19543537296" data-phone="tel:+19543537296" data-directions="https://www.google.com/maps/dir/?api=1&amp;destination=1944+Hollywood+Blvd+Hollywood+FL+33020">Hollywood</a>
-  <a class="btn btn--navy" href="tel:+17549995626" data-phone="tel:+17549995626" data-directions="https://www.google.com/maps/dir/?api=1&amp;destination=1303+FL-7+Margate+FL+33063">Margate</a>
-  <form method="dialog"><button class="btn btn--navy">Close</button></form>
-</dialog>
-
 <script>
-// Move the actual section so keyboard and screen-reader order follows the layout.
-const film = document.getElementById('brand-film');
-const filmHome = document.createComment('Desktop film position');
-film.before(filmHome);
-const mobileLayout = window.matchMedia('(max-width: 900px)');
-const arrangeFilm = () => {
-  if (mobileLayout.matches) document.getElementById('loan-request').after(film);
-  else filmHome.after(film);
-};
-mobileLayout.addEventListener('change', arrangeFilm);
-arrangeFilm();
-const setMenu = open => {
-  document.getElementById('mobileMenu').classList.toggle('open', open);
-  const button = document.querySelector('.nav__menu-btn');
-  button.setAttribute('aria-expanded', String(open));
-  button.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
-};
-const toggleMenu = () => setMenu(!document.getElementById('mobileMenu').classList.contains('open'));
-const closeMenu = () => setMenu(false);
-document.addEventListener('keydown', event => {
-  if (event.key === 'Escape' && document.getElementById('mobileMenu').classList.contains('open')) {
-    closeMenu();
-    document.querySelector('.nav__menu-btn').focus();
-  }
-});
-function chooseStore(action) {
-  const dialog = document.getElementById('storeChooser');
-  document.getElementById('storeChooserTitle').textContent = action === 'call' ? 'Call your store' : 'Directions to your store';
-  dialog.querySelectorAll('[data-phone]').forEach(link => {
-    link.href = action === 'call' ? link.dataset.phone : link.dataset.directions;
-  });
-  dialog.showModal();
-}
+const toggleMenu = () => document.getElementById('mobileMenu').classList.toggle('open');
+const closeMenu = () => document.getElementById('mobileMenu').classList.remove('open');
 const toggleFaq = (btn) => {
   const item = btn.closest('.faq-item');
   const isOpen = item.classList.contains('open');
@@ -1816,4 +1677,18 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
   });
 });
 </script>
-<script src="cookie-consent.js" defer></script>
+
+<!-- Cookie Notice -->
+<div id="cookie-banner" style="display:none;position:fixed;bottom:0;left:0;right:0;background:#1E2B3C;color:#CBD8E4;font-size:.85rem;padding:.85rem 1.25rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;z-index:9999;border-top:2px solid #C8A84B;box-shadow:0 -2px 12px rgba(0,0,0,.3)">
+  <span>We use cookies to analyze site traffic via Google Analytics. No personal data is collected unless you submit a form. <a href="privacy-policy.html" style="color:#C8A84B;text-decoration:underline">Learn more</a></span>
+  <button onclick="dismissCookie()" style="background:#C8A84B;color:#1E2B3C;border:none;padding:.45rem 1.1rem;border-radius:4px;font-weight:600;cursor:pointer;font-size:.85rem;white-space:nowrap;flex-shrink:0">Got it</button>
+</div>
+<script>
+(function(){
+  try{if(!localStorage.getItem('fp_cookie_ok')){document.getElementById('cookie-banner').style.display='flex'}}catch(e){}
+})();
+function dismissCookie(){
+  try{localStorage.setItem('fp_cookie_ok','1')}catch(e){}
+  document.getElementById('cookie-banner').style.display='none';
+}
+</script>

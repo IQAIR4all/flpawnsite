@@ -264,12 +264,6 @@ html, body {
   *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
 }
 </style>
-
-<script>
-  window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
-</script>
-<script defer src="/_vercel/insights/script.js"></script>
-
 </head>
 <body>
 <div class="reel-page">
@@ -399,7 +393,6 @@ html, body {
   <footer class="reel-footer">
     <span>FLORIDA PAWN <i>© 2025</i></span>
     <span>75 YEARS OF TRUST. ONE NEIGHBORHOOD AT A TIME.</span>
-    <span><a href="privacy-policy.html">Privacy Policy</a>&nbsp;&nbsp;·&nbsp;&nbsp;<a href="terms-and-conditions.html">Terms &amp; Conditions</a></span>
     <a href="index.html">← BACK TO SITE</a>
   </footer>
 
@@ -587,6 +580,20 @@ function onScrub(val) {
 renderScene(0);
 updateProgress();
 </script>
-<script src="cookie-consent.js" defer></script>
 </body>
+
+<!-- Cookie Notice -->
+<div id="cookie-banner" style="display:none;position:fixed;bottom:0;left:0;right:0;background:#1E2B3C;color:#CBD8E4;font-size:.85rem;padding:.85rem 1.25rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;z-index:9999;border-top:2px solid #C8A84B;box-shadow:0 -2px 12px rgba(0,0,0,.3)">
+  <span>We use cookies to analyze site traffic via Google Analytics. No personal data is collected unless you submit a form. <a href="privacy-policy.html" style="color:#C8A84B;text-decoration:underline">Learn more</a></span>
+  <button onclick="dismissCookie()" style="background:#C8A84B;color:#1E2B3C;border:none;padding:.45rem 1.1rem;border-radius:4px;font-weight:600;cursor:pointer;font-size:.85rem;white-space:nowrap;flex-shrink:0">Got it</button>
+</div>
+<script>
+(function(){
+  try{if(!localStorage.getItem('fp_cookie_ok')){document.getElementById('cookie-banner').style.display='flex'}}catch(e){}
+})();
+function dismissCookie(){
+  try{localStorage.setItem('fp_cookie_ok','1')}catch(e){}
+  document.getElementById('cookie-banner').style.display='none';
+}
+</script>
 </html>
