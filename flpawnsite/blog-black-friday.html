@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Skip the Mall. Shop Florida Pawn This Black Friday | Florida Pawn</title>
+<meta name="description" content="Skip the Black Friday crowds. Shop jewelry, electronics, tools, and luxury watches at Florida Pawn in Hollywood and Margate, FL this holiday season.">
+<link rel="canonical" href="https://flpawn.com/blog-black-friday.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600&display=swap">
+<style>
+  :root {
+    --navy: #1E2B3C;
+    --gold: #C8A84B;
+    --gold-light: #e8c96a;
+    --bg: #ffffff;
+    --fg: #1a1a1a;
+    --muted: #555e6d;
+    --surface: #f4f6f9;
+    --border: #dde2ea;
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #111820;
+      --fg: #e8edf4;
+      --muted: #8a96a8;
+      --surface: #1a2330;
+      --border: #2a3545;
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #111820;
+    --fg: #e8edf4;
+    --muted: #8a96a8;
+    --surface: #1a2330;
+    --border: #2a3545;
+    color-scheme: dark;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--fg);
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  /* Header */
+  .site-header {
+    background: var(--navy);
+    padding: 1rem 1.5rem;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  .site-header a {
+    color: var(--gold);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: .95rem;
+  }
+  .site-header a:hover { color: var(--gold-light); }
+  .header-brand {
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin-right: auto;
+  }
+
+  /* Hero */
+  .hero {
+    background: var(--navy);
+    padding: 3rem 1.5rem 2.5rem;
+    text-align: center;
+  }
+  .hero-eyebrow {
+    color: var(--gold);
+    font-size: .8rem;
+    font-weight: 600;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    margin-bottom: .75rem;
+  }
+  .hero h1 {
+    font-family: 'Merriweather', serif;
+    font-size: clamp(1.6rem, 4vw, 2.4rem);
+    color: #fff;
+    line-height: 1.25;
+    text-wrap: balance;
+    max-width: 720px;
+    margin: 0 auto 1rem;
+  }
+  .hero-meta {
+    color: #8a96a8;
+    font-size: .85rem;
+  }
+  .hero-meta span { color: var(--gold); }
+
+  /* Article layout */
+  .article-wrap {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 2.5rem 1.5rem 4rem;
+  }
+
+  .hero-subtitle { max-width: 720px; margin: 0 auto 1rem; color: #e8edf4; }
+  .article-wrap h3 { margin: 1.5rem 0 .5rem; font-size: 1.05rem; }
+
+  /* Intro lead */
+  .lead {
+    font-size: 1.1rem;
+    color: var(--muted);
+    line-height: 1.75;
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  /* Body copy */
+  .article-wrap h2 {
+    font-family: 'Merriweather', serif;
+    font-size: 1.35rem;
+    color: var(--navy);
+    margin: 2.25rem 0 .75rem;
+    text-wrap: balance;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) .article-wrap h2 { color: var(--gold); }
+  }
+  :root[data-theme="dark"] .article-wrap h2 { color: var(--gold); }
+
+  .article-wrap p { margin-bottom: 1.1rem; color: var(--fg); }
+  .article-wrap ul, .article-wrap ol {
+    margin: .5rem 0 1.25rem 1.25rem;
+  }
+  .article-wrap li { margin-bottom: .4rem; }
+
+  /* Tip box */
+  .tip-box {
+    background: var(--surface);
+    border-left: 4px solid var(--gold);
+    border-radius: 0 8px 8px 0;
+    padding: 1rem 1.25rem;
+    margin: 1.5rem 0;
+  }
+  .tip-box strong {
+    color: #7a6020;
+    display: block;
+    margin-bottom: .3rem;
+    font-size: .85rem;
+    letter-spacing: .05em;
+    text-transform: uppercase;
+  }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .tip-box strong { color: var(--gold-light); } }
+  :root[data-theme="dark"] .tip-box strong { color: var(--gold-light); }
+
+  /* Item grid */
+  .item-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: .6rem;
+    margin: 1rem 0 1.5rem;
+  }
+  .item-pill {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: .5rem .75rem;
+    font-size: .875rem;
+    font-weight: 500;
+    text-align: center;
+  }
+
+  /* CTA block */
+  .cta-block {
+    background: var(--navy);
+    border-radius: 12px;
+    padding: 2rem 1.5rem;
+    text-align: center;
+    margin-top: 3rem;
+  }
+  .cta-block h3 {
+    font-family: 'Merriweather', serif;
+    color: #fff;
+    font-size: 1.3rem;
+    margin-bottom: .5rem;
+    text-wrap: balance;
+  }
+  .cta-block p { color: #8a96a8; margin-bottom: 1.25rem; }
+  .cta-buttons { display: flex; gap: .75rem; justify-content: center; flex-wrap: wrap; }
+  .btn-gold {
+    background: var(--gold);
+    color: var(--navy);
+    font-weight: 700;
+    font-size: .95rem;
+    padding: .7rem 1.5rem;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: background .15s;
+  }
+  .btn-gold:hover { background: var(--gold-light); }
+  .btn-outline {
+    border: 2px solid var(--gold);
+    color: var(--gold);
+    font-weight: 600;
+    font-size: .95rem;
+    padding: .65rem 1.5rem;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: background .15s, color .15s;
+  }
+  .btn-outline:hover { background: var(--gold); color: var(--navy); }
+
+  /* Location cards */
+  .location-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin: 1rem 0 1.5rem;
+  }
+  @media (max-width: 480px) { .location-cards { grid-template-columns: 1fr; } }
+  .loc-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1rem;
+  }
+  .loc-card strong {
+    display: block;
+    margin-bottom: .25rem;
+    color: #7a6020;
+    font-size: .95rem;
+  }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .loc-card strong { color: var(--gold-light); } }
+  :root[data-theme="dark"] .loc-card strong { color: var(--gold-light); }
+  .loc-card span { font-size: .875rem; color: var(--muted); }
+
+  /* Footer */
+  .site-footer {
+    background: var(--navy);
+    color: #8a96a8;
+    text-align: center;
+    font-size: .8rem;
+    padding: 1.5rem;
+  }
+  .site-footer a { color: var(--gold); text-decoration: none; }
+</style>
+<script src="cookie-consent.js" defer></script>
+</head>
+<body>
+
+<header class="site-header">
+  <span class="header-brand">Florida Pawn</span>
+  <a href="index.html">Home</a>
+  <a href="blog.html">Blog</a>
+  <a href="location-hollywood.html">Hollywood</a>
+  <a href="location-margate.html">Margate</a>
+</header>
+
+<div class="hero">
+  <p class="hero-eyebrow">Black Friday 2026</p>
+  <h1>Skip the Mall.<br>Shop Florida Pawn This Black Friday.</h1>
+  <p class="hero-subtitle">No parking lot chaos. No 4 AM lines. Just genuine deals on jewelry, electronics, tools, and luxury watches — every single day.</p>
+  <p class="hero-meta">November 2026 &nbsp;·&nbsp; 5 min read &nbsp;·&nbsp; <span>Florida Pawn</span></p>
+</div>
+
+<main><article class="article-wrap">
+
+  <p class="lead">Black Friday is supposed to be about savings. But somewhere between the midnight store openings, the checkout-site crashes, and the doorbuster TVs that sell out in 90 seconds, the actual deals get hard to find. Florida Pawn offers something different: real, negotiable prices on quality merchandise — not just one Friday, but every day of the year.</p>
+  <p>If you're in Broward County this Thanksgiving weekend and looking to stretch your dollar, here's why walking into one of our two locations might be the best shopping decision you make all season.</p>
+
+  <h2>Pawn Shop Prices Beat Retail — Without the Gimmicks</h2>
+  <p>Retailers mark prices up weeks before Black Friday so the &quot;60% off&quot; tag looks impressive. Pawn shop pricing doesn't work that way. Items are priced based on current resale value — full stop. When you buy a diamond ring, a Sony camera, or a DeWalt drill at Florida Pawn, you're paying what that item is actually worth in today's market, not a manufactured MSRP with a dramatic slash through it.</p>
+  <p>On some categories — gold jewelry, luxury watches, name-brand electronics — you'll consistently save more than any Black Friday sale could offer.</p>
+
+  <div class="tip-box">
+    <strong>The math is simple.</strong>
+    A pre-owned Rolex Datejust at Florida Pawn typically sells for 20–40% less than a gray-market dealer and 50%+ less than retail MSRP — with no &quot;limited supply&quot; pressure.
+  </div>
+
+  <h2>What You'll Find at Florida Pawn This Season</h2>
+  <p>Our inventory changes constantly — that's part of what makes browsing fun. But heading into the holiday season, here are the categories we're well-stocked in:</p>
+  <div class="item-grid">
+    <div class="item-pill">Fine Jewelry</div>
+    <div class="item-pill">Luxury Watches</div>
+    <div class="item-pill">Laptops</div>
+    <div class="item-pill">iPhones &amp; iPads</div>
+    <div class="item-pill">Gaming Consoles</div>
+    <div class="item-pill">Cameras &amp; Lenses</div>
+    <div class="item-pill">Power Tools</div>
+    <div class="item-pill">Musical Instruments</div>
+    <div class="item-pill">Fitness Equipment</div>
+    <div class="item-pill">Diamond Rings</div>
+    <div class="item-pill">Audio Gear</div>
+    <div class="item-pill">Sporting Goods</div>
+  </div>
+
+  <div class="tip-box">
+    <strong>Gift Shopping?</strong>
+    Jewelry and watches make excellent gifts and hold their value. A piece from Florida Pawn at 40% below retail is indistinguishable from something bought at a department store — and far more thoughtful than a last-minute Amazon order.
+  </div>
+
+  <h2>Florida Pawn vs. Black Friday: A Real Comparison</h2>
+  <h3>Florida Pawn — Every day is deal day</h3>
+  <p>Fair market pricing year-round. No manufactured discounts. Walk in, browse, buy — or make an offer.</p>
+  <h3>Big Box Retail — One day, limited stock</h3>
+  <p>Doorbusters sell out in minutes. Many &quot;deals&quot; are on lower-spec models made specifically for Black Friday.</p>
+  <h3>Online Marketplaces — Great prices, real risk</h3>
+  <p>Private sellers on eBay or Facebook Marketplace offer no guarantees, no returns, and plenty of counterfeits.</p>
+
+  <h2>You Can Negotiate — That's Not Rude, That's the Business</h2>
+  <p>Unlike retail, pawn shop prices are often negotiable. If you're buying multiple items, or you've done your research on the value of a specific piece, it's completely acceptable to have that conversation. Our staff knows the inventory and knows the market — they'd rather work with a serious buyer than lose a sale.</p>
+  <p>Come in knowing what you want. Look it up beforehand. Ask questions. That's exactly how smart pawn shop shopping works.</p>
+
+  <h2>Need Quick Cash Before the Holidays? We Buy Too.</h2>
+  <p>Black Friday cuts both ways. If you need extra cash for holiday shopping, Florida Pawn buys items outright — gold, jewelry, electronics, tools, luxury goods. No appointment needed. Walk in, get a free evaluation, and walk out with cash the same day.</p>
+  <p>Or if you'd rather hold onto your item, a pawn loan lets you use it as collateral for quick short-term cash — no credit check, no application, no waiting.</p>
+
+  <div class="tip-box">
+    <strong>Pro Tip</strong>
+    Bring in old gold jewelry, broken chains, or single earrings before the holidays. Gold prices are historically strong right now, and we pay top dollar based on actual weight and karat — not a lowball guess.
+  </div>
+
+  <h2>Two Broward County Locations<br>Open Through the Holiday Weekend</h2>
+  <p>Both Florida Pawn locations will be open through Thanksgiving weekend. No need to fight I-95 traffic to get to a mall.</p>
+  <div class="location-cards">
+    <div class="loc-card">
+      <strong>Hollywood Location</strong>
+      <span>1944 Hollywood Blvd<br>Hollywood, FL 33020<br>Mon–Sat: 9 AM – 5 PM<br>Sun: 11 AM – 4 PM<br>(954) 922-2015</span>
+    </div>
+    <div class="loc-card">
+      <strong>Margate Location</strong>
+      <span>1303 FL-7<br>Margate, FL 33063<br>Mon–Sat: 9 AM – 5 PM<br>Sun: 11 AM – 4 PM<br>(954) 974-2055</span>
+    </div>
+  </div>
+
+  <h2>Frequently Asked Questions</h2>
+  <h3>Can I return something I buy at a pawn shop?</h3>
+  <p>Florida Pawn stands behind its merchandise. Ask our staff about the return policy on specific items — electronics in particular are tested before sale.</p>
+  <h3>Are items at a pawn shop authentic?</h3>
+  <p>Yes. We evaluate every item that comes through the door. Jewelry is tested for karat and authenticity, watches are inspected for genuine movements and markings, and electronics are tested before they hit the floor.</p>
+  <h3>Do you have layaway or payment plans?</h3>
+  <p>Ask in-store — our staff can discuss options depending on the item and price point.</p>
+  <h3>What's the best time to come in for the most selection?</h3>
+  <p>Early in the week tends to bring fresh inventory. That said, new items come in daily, so there's no bad time to browse.</p>
+  <h3>I want to sell something before the holidays. What should I bring?</h3>
+  <p>Gold jewelry, diamond rings, luxury watches, iPhones, laptops, and power tools all move quickly this time of year. Bring a valid ID and the item — we'll give you a free, no-obligation quote on the spot.</p>
+
+  <h2>The Bottom Line</h2>
+  <p>Black Friday is a marketing event. Florida Pawn is a real store with real prices on real merchandise. If you're in Hollywood or Margate this holiday weekend — or any weekend — come see what's on the floor. You might walk out with the best deal you found all season, without ever setting foot in a mall.</p>
+  <p><strong>Florida Pawn — Hollywood &amp; Margate, FL. We pay the most for your items.</strong></p>
+
+  <div class="cta-block">
+    <h3>Shop Florida Pawn This Black Friday</h3>
+    <p>Visit either Broward County location to see what's on the floor.</p>
+    <div class="cta-buttons">
+      <a href="location-hollywood.html" class="btn-gold">Hollywood Location</a>
+      <a href="location-margate.html" class="btn-outline">Margate Location</a>
+    </div>
+  </div>
+
+</article></main>
+
+<footer class="site-footer">
+  &copy; 2026 Florida Pawn &nbsp;&middot;&nbsp;
+  <a href="privacy-policy.html">Privacy Policy</a> &nbsp;&middot;&nbsp;
+  <a href="terms-and-conditions.html">Terms &amp; Conditions</a>
+</footer>
+
+</body>
+</html>
