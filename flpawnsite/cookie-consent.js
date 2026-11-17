@@ -19,8 +19,8 @@
     '<div class="cookie-consent__actions"><button type="button" data-choice="accepted">Accept</button><button type="button" data-choice="rejected">Reject</button></div>';
   document.body.appendChild(banner);
 
-  // Only explicitly marked optional scripts may run after consent. Never add an
-  // unguarded analytics loader to a page. There is no tracker configured today.
+  // Only explicitly marked optional cookie-based scripts may run after consent.
+  // Cookieless Vercel Web Analytics is loaded separately by each page.
   function enableOptionalScripts() {
     document.querySelectorAll('script[type="text/plain"][data-cookie-consent="analytics"]').forEach(function (placeholder) {
       var script = document.createElement('script');

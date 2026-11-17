@@ -21,6 +21,11 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap" media="print" onload="this.media='all'">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap"></noscript>
+<!-- Vercel Web Analytics is cookieless; optional cookie-based scripts stay consent-gated. -->
+<script>
+  window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+</script>
+<script defer src="/_vercel/insights/script.js"></script>
 <style>
 :root{--navy:#1E2B3C;--navy-dark:#152030;--navy-mid:#2A3A52;--gold:#C8A84B;--gold-dark:#9E7E2A;--gold-light:#E8CC7A;--bg:#FFFFFF;--bg-soft:#F8F7F4;--bg-warm:#F3F0E8;--fg:#1A1A2E;--fg-soft:#4A4A60;--fg-muted:#696978;--border:#E4E2DC;--card-bg:#FFFFFF;--font-serif:'Libre Baskerville',Georgia,serif;--font-sans:'Inter',system-ui,sans-serif}
 @media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0E1420;--bg-soft:#131B2A;--bg-warm:#181F2E;--fg:#E8E6F0;--fg-soft:#A8A8C0;--fg-muted:#60607A;--border:#252D3E;--card-bg:#161E2E;color-scheme:dark}}
@@ -133,7 +138,7 @@ p{max-width:65ch}a{color:var(--gold-dark);text-decoration:none}a:hover{text-deco
   </div>
 </div>
 <div class="legal-body">
-  <div class="legal-updated">Last updated: October 16, 2026</div>
+  <div class="legal-updated">Last updated: November 17, 2026</div>
 
   <h2>1. Who We Are</h2>
   <p>Florida Pawn (operating as Gem Financial Services Inc.) operates two pawn shop locations in Broward County, Florida: 1944 Hollywood Blvd, Hollywood, FL 33020, and 1303 FL-7, Margate, FL 33063. This Privacy Policy applies to the website located at <a href="https://fla-pawn.com">fla-pawn.com</a>.</p>
@@ -147,8 +152,8 @@ p{max-width:65ch}a{color:var(--gold-dark);text-decoration:none}a:hover{text-deco
   <h3>Information You Provide</h3>
   <p>We only collect personal information when you voluntarily submit it through a contact or inquiry form on this website. This may include your name, phone number, email address, and the nature of your inquiry. We do not require you to provide any personal information simply to browse this website.</p>
   <h3>Automatically Collected Information</h3>
-  <p>Like most websites, we use Google Analytics to collect anonymous, aggregated data about how visitors use our site. This may include your browser type, device type, pages visited, time spent on pages, and general geographic region (city/state level). This data does not identify you personally.</p>
-  <p>Google Analytics uses cookies — small text files stored in your browser — to distinguish visitors and track usage patterns. You can opt out of Google Analytics tracking at any time using the <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener">Google Analytics Opt-Out Browser Add-on</a>.</p>
+  <p>We use Vercel Web Analytics to collect anonymous, aggregated data about how visitors use our site, including pages visited, referring sites, browser and device type, and general geographic region. We do not send contact form contents to Web Analytics or use analytics to identify individual visitors.</p>
+  <p>Vercel Web Analytics does not use cookies. It distinguishes visitors using a temporary request-derived hash that resets daily. See <a href="https://vercel.com/docs/analytics/privacy-policy" target="_blank" rel="noopener">Vercel Web Analytics privacy information</a> for details.</p>
 
   <h2>3. How We Use Your Information</h2>
   <p>We use the information you provide solely to respond to your inquiry or follow up on a service request. We do not use your information for automated marketing without your consent.</p>
@@ -157,16 +162,16 @@ p{max-width:65ch}a{color:var(--gold-dark);text-decoration:none}a:hover{text-deco
   <h2>4. Sharing of Information</h2>
   <p>We do not sell, rent, or trade your personal information to third parties. We do not share your information with any third party except:</p>
   <ul>
-    <li>Google LLC, which provides analytics services under its own <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Privacy Policy</a></li>
+    <li>Vercel, which hosts this website and provides Web Analytics under its <a href="https://vercel.com/legal/privacy-policy" target="_blank" rel="noopener">Privacy Policy</a></li>
     <li>As required by law, court order, or government regulation</li>
   </ul>
 
   <h2>5. Cookies</h2>
-  <p>This website uses cookies placed by Google Analytics. These cookies do not contain personally identifiable information. You may disable cookies in your browser settings; however, some features of the website may not function properly if you do.</p>
-  <p>We display a cookie notice banner on your first visit. Dismissing the banner indicates your acknowledgment of our cookie use.</p>
+  <p>Vercel Web Analytics does not place analytics cookies. Cookie preference notices, where displayed, use local browser storage to remember your choice about optional cookie-based scripts; this is separate from cookieless Web Analytics.</p>
+  <p>You can manage cookies and local storage in your browser settings.</p>
 
   <h2>6. Data Retention</h2>
-  <p>If you submit a contact form, we retain your information only as long as necessary to respond to your inquiry, unless you request otherwise. Analytics data is retained by Google according to its standard data retention settings.</p>
+  <p>If you submit a contact form, we retain your information only as long as necessary to respond to your inquiry, unless you request otherwise. Aggregated analytics data is processed by Vercel as described in the Web Analytics privacy information linked above; the visitor hash resets daily and is not a permanent identifier.</p>
 
   <h2>7. Your Rights</h2>
   <p>You may request that we delete any personal information you have submitted to us by contacting us by phone at either store location. We will honor such requests promptly.</p>
@@ -192,7 +197,7 @@ function toggleNav(){document.getElementById("mm").classList.toggle("open")}
 
 <!-- Cookie Notice -->
 <div id="cookie-banner" style="display:none;position:fixed;bottom:0;left:0;right:0;background:#1E2B3C;color:#CBD8E4;font-size:.85rem;padding:.85rem 1.25rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;z-index:9999;border-top:2px solid #C8A84B;box-shadow:0 -2px 12px rgba(0,0,0,.3)">
-  <span>We use cookies to analyze site traffic via Google Analytics. No personal data is collected unless you submit a form. <a href="privacy-policy.html" style="color:#C8A84B;text-decoration:underline">Learn more</a></span>
+  <span>We use cookieless Vercel Web Analytics to understand site traffic. No personal data is collected unless you submit a form. <a href="privacy-policy.html" style="color:#C8A84B;text-decoration:underline">Learn more</a></span>
   <button onclick="dismissCookie()" style="background:#C8A84B;color:#1E2B3C;border:none;padding:.45rem 1.1rem;border-radius:4px;font-weight:600;cursor:pointer;font-size:.85rem;white-space:nowrap;flex-shrink:0">Got it</button>
 </div>
 <script>
