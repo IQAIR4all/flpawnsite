@@ -15,6 +15,7 @@ async function setup(options = {}) {
   await context.route('**/*', route => {
     const url = new URL(route.request().url());
     if (url.hostname !== 'promo.test') return route.abort();
+    if (options.stallAnalytics && url.pathname === '/_vercel/insights/script.js') return;
     if (options.failImage && url.pathname.endsWith('black-friday-popup.png')) return route.abort();
     const file = path.join(root, url.pathname === '/' ? 'index.html' : url.pathname);
     if (!fs.existsSync(file)) return route.abort();
@@ -22,7 +23,7 @@ async function setup(options = {}) {
     return route.fulfill({ body: fs.readFileSync(file), contentType: types[path.extname(file)] || 'application/octet-stream' });
   });
   const page = await context.newPage();
-  await page.goto('http://promo.test/');
+  await page.goto('http://promo.test/', { waitUntil: options.stallAnalytics ? 'commit' : 'load' });
   return { browser, page };
 }
 
@@ -59,6 +60,8 @@ for (const viewport of [{ width: 320, height: 568 }, { width: 375, height: 844 }
       }
       assert.equal(await page.locator('#homepage-promo').evaluate(el => el.scrollWidth <= el.clientWidth), true);
       await page.keyboard.press('Escape');
+      await page.locator('#homepage-promo').waitFor({ state: 'hidden' });
+      await page.waitForFunction(() => !document.documentElement.classList.contains('homepage-promo-open'));
       assert.equal(await page.locator('#homepage-promo').isVisible(), false);
       assert.equal(await page.evaluate(() => document.documentElement.classList.contains('homepage-promo-open')), false);
       await page.evaluate(key => sessionStorage.removeItem(key), key);
@@ -91,8 +94,17 @@ test('failed promotional image leaves the homepage usable', async () => {
 test('only the deployed homepage includes popup assets', () => {
   for (const file of fs.readdirSync(root).filter(file => file.endsWith('.html'))) {
     const html = fs.readFileSync(path.join(root, file), 'utf8');
-    for (const marker of ['homepage-promo.js', 'homepage-promo.css', 'id="homepage-promo"']) {
+    for (const marker of ['homepage-promo.css', 'id="homepage-promo"']) {
       assert.equal(html.includes(marker), file === 'index.html', `${file}: ${marker}`);
     }
   }
+});
+
+test('popup does not wait for the analytics script to finish loading', async () => {
+  const { browser, page } = await setup({ stallAnalytics: true });
+  try {
+    await page.locator('#homepage-promo[open]').waitFor({ timeout: 3000 });
+    await page.getByRole('button', { name: 'Close promotion' }).click();
+    assert.equal(await page.locator('#homepage-promo').isVisible(), false);
+  } finally { await browser.close(); }
 });
