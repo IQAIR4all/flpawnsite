@@ -15,7 +15,7 @@
   banner.className = 'cookie-consent';
   banner.setAttribute('aria-label', 'Cookie preferences');
   banner.hidden = !!choice;
-  banner.innerHTML = '<p>Optional analytics cookies are off unless you accept. You can reject them and still use this site. <a href="privacy-policy.html">Privacy Policy</a></p>' +
+  banner.innerHTML = '<p>Optional analytics tags, including Google Tag Manager, are off unless you accept. You can reject them and still use this site. <a href="privacy-policy.html">Privacy Policy</a></p>' +
     '<div class="cookie-consent__actions"><button type="button" data-choice="accepted">Accept</button><button type="button" data-choice="rejected">Reject</button></div>';
   document.body.appendChild(banner);
 
@@ -42,7 +42,7 @@
     banner.hidden = false;
     banner.querySelector('button').focus();
   });
-  var footer = document.querySelector('.footer__bottom, .reel-footer');
+  var footer = document.querySelector('.footer__bottom, .reel-footer, .site-footer, footer');
   (footer || document.body).appendChild(settings);
 
   banner.querySelectorAll('button[data-choice]').forEach(function (button) {
