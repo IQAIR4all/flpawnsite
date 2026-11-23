@@ -1,0 +1,46 @@
+html.homepage-promo-open { overflow: hidden; }
+.homepage-promo {
+  box-sizing: border-box;
+  width: max-content;
+  max-width: calc(100vw - 24px);
+  max-height: calc(100vh - 24px);
+  max-height: calc(100dvh - 24px);
+  margin: auto;
+  padding: 0;
+  border: 1px solid #c8a84b;
+  border-radius: 8px;
+  background: #1e2b3c;
+  color: #fff;
+  box-shadow: 0 16px 64px #0008;
+}
+.homepage-promo::backdrop { background: rgb(0 0 0 / 70%); }
+.homepage-promo__controls {
+  display: flex;
+  justify-content: flex-end;
+  margin: 0;
+  padding: 4px;
+}
+.homepage-promo__controls button {
+  min-width: 88px;
+  min-height: 44px;
+  padding: 8px 12px;
+  border: 1px solid #c8a84b;
+  border-radius: 4px;
+  background: #c8a84b;
+  color: #1e2b3c;
+  font: 600 16px/1.4 Inter, sans-serif;
+  cursor: pointer;
+}
+.homepage-promo__controls button:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 1px;
+}
+.homepage-promo img {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: min(800px, calc(100vw - 26px));
+  max-height: calc(100vh - 82px);
+  max-height: calc(100dvh - 82px);
+  object-fit: contain;
+}
