@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Skip the Mall. Shop Florida Pawn This Black Friday | Florida Pawn</title>
-<meta name="description" content="Skip the Black Friday crowds. Shop jewelry, electronics, tools, and luxury watches at Florida Pawn in Hollywood and Margate, FL this holiday season.">
+<title>Black Friday Shopping at Florida Pawn | Hollywood &amp; Margate FL</title>
+<meta name="description" content="Skip the Black Friday crowds and shop Florida Pawn in Hollywood and Margate, FL. Find jewelry, electronics, tools, and luxury watches at pawn shop prices — every day, not just one day a year.">
 <link rel="canonical" href="https://flpawn.com/blog-black-friday.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600&display=swap">
@@ -23,6 +23,7 @@
     --muted: #555e6d;
     --surface: #f4f6f9;
     --border: #dde2ea;
+    --link: #7a6020;
     color-scheme: light;
   }
   @media (prefers-color-scheme: dark) {
@@ -32,6 +33,7 @@
       --muted: #8a96a8;
       --surface: #1a2330;
       --border: #2a3545;
+      --link: #e8c96a;
       color-scheme: dark;
     }
   }
@@ -41,6 +43,7 @@
     --muted: #8a96a8;
     --surface: #1a2330;
     --border: #2a3545;
+    --link: #e8c96a;
     color-scheme: dark;
   }
 
@@ -76,110 +79,210 @@
     margin-right: auto;
   }
 
-  /* Hero */
-  .hero {
-    background: var(--navy);
-    padding: 3rem 1.5rem 2.5rem;
-    text-align: center;
-  }
-  .hero-eyebrow {
-    color: var(--gold);
-    font-size: .8rem;
-    font-weight: 600;
-    letter-spacing: .12em;
-    text-transform: uppercase;
-    margin-bottom: .75rem;
-  }
-  .hero h1 {
-    font-family: 'Merriweather', serif;
-    font-size: clamp(1.6rem, 4vw, 2.4rem);
+  /* ── Black Friday hero ── */
+  .bf-hero {
+    background: linear-gradient(135deg, #1E2B3C 0%, #0a1220 60%, #2a1a00 100%);
     color: #fff;
-    line-height: 1.25;
-    text-wrap: balance;
+    text-align: center;
+    padding: 3.5rem 1.5rem 3rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .bf-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 50% 0%, rgba(200,168,75,.18) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .bf-hero__tag {
+    display: inline-block;
+    background: #C8A84B;
+    color: #1E2B3C;
+    font-size: .72rem;
+    font-weight: 700;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    padding: .3rem .8rem;
+    border-radius: 2px;
+    margin-bottom: 1.2rem;
+  }
+  .bf-hero h1 {
+    font-size: clamp(1.6rem, 5vw, 2.6rem);
+    font-weight: 800;
+    line-height: 1.2;
     max-width: 720px;
     margin: 0 auto 1rem;
+    text-wrap: balance;
   }
-  .hero-meta {
-    color: #8a96a8;
-    font-size: .85rem;
+  .bf-hero h1 span { color: #C8A84B; }
+  .bf-hero__sub {
+    font-size: 1.05rem;
+    color: rgba(255,255,255,.78);
+    max-width: 540px;
+    margin: 0 auto 1.8rem;
+    line-height: 1.6;
   }
-  .hero-meta span { color: var(--gold); }
+  .bf-hero__meta {
+    font-size: .82rem;
+    color: rgba(255,255,255,.5);
+    letter-spacing: .04em;
+  }
 
-  /* Article layout */
+  /* ── Article layout ── */
   .article-wrap {
     max-width: 760px;
     margin: 0 auto;
-    padding: 2.5rem 1.5rem 4rem;
+    padding: 2.5rem 1.25rem 3rem;
   }
-
-  .hero-subtitle { max-width: 720px; margin: 0 auto 1rem; color: #e8edf4; }
-  .article-wrap h3 { margin: 1.5rem 0 .5rem; font-size: 1.05rem; }
-
-  /* Intro lead */
-  .lead {
-    font-size: 1.1rem;
-    color: var(--muted);
-    line-height: 1.75;
-    margin-bottom: 2rem;
-    padding-bottom: 2rem;
-    border-bottom: 1px solid var(--border);
-  }
-
-  /* Body copy */
   .article-wrap h2 {
-    font-family: 'Merriweather', serif;
     font-size: 1.35rem;
-    color: var(--navy);
-    margin: 2.25rem 0 .75rem;
+    font-weight: 700;
+    color: var(--fg);
+    margin: 2.4rem 0 .7rem;
     text-wrap: balance;
   }
-  @media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) .article-wrap h2 { color: var(--gold); }
+  .article-wrap p {
+    font-size: 1rem;
+    line-height: 1.75;
+    color: var(--fg);
+    margin-bottom: 1.1rem;
   }
-  :root[data-theme="dark"] .article-wrap h2 { color: var(--gold); }
 
-  .article-wrap p { margin-bottom: 1.1rem; color: var(--fg); }
-  .article-wrap ul, .article-wrap ol {
-    margin: .5rem 0 1.25rem 1.25rem;
+  /* ── Comparison cards ── */
+  .compare-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+    gap: 1.1rem;
+    margin: 1.5rem 0 2rem;
   }
-  .article-wrap li { margin-bottom: .4rem; }
-
-  /* Tip box */
-  .tip-box {
+  .compare-card {
+    border: 1.5px solid var(--border);
+    border-radius: 8px;
+    padding: 1.2rem 1.1rem;
     background: var(--surface);
-    border-left: 4px solid var(--gold);
-    border-radius: 0 8px 8px 0;
-    padding: 1rem 1.25rem;
-    margin: 1.5rem 0;
   }
-  .tip-box strong {
-    color: #7a6020;
-    display: block;
-    margin-bottom: .3rem;
-    font-size: .85rem;
-    letter-spacing: .05em;
+  .compare-card__label {
+    font-size: .72rem;
+    font-weight: 700;
+    letter-spacing: .1em;
     text-transform: uppercase;
+    color: var(--link);
+    margin-bottom: .4rem;
+    display: block;
   }
-  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .tip-box strong { color: var(--gold-light); } }
-  :root[data-theme="dark"] .tip-box strong { color: var(--gold-light); }
+  .compare-card__title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--fg);
+    margin-bottom: .5rem;
+  }
+  .compare-card__detail {
+    font-size: .9rem;
+    color: var(--muted);
+    line-height: 1.55;
+  }
+  .compare-card--gold {
+    border-color: #C8A84B;
+    background: var(--surface);
+  }
+  .compare-card--gold .compare-card__label { color: var(--link); }
 
-  /* Item grid */
+  /* ── Item category grid ── */
   .item-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    gap: .6rem;
-    margin: 1rem 0 1.5rem;
+    gap: .75rem;
+    margin: 1.2rem 0 1.8rem;
   }
-  .item-pill {
+  .item-chip {
     background: var(--surface);
     border: 1px solid var(--border);
     border-radius: 6px;
-    padding: .5rem .75rem;
-    font-size: .875rem;
-    font-weight: 500;
-    text-align: center;
+    padding: .65rem .9rem;
+    font-size: .9rem;
+    font-weight: 600;
+    color: var(--fg);
+    display: flex;
+    align-items: center;
+    gap: .45rem;
   }
+  .item-chip__icon { font-size: 1.1rem; }
 
+  /* ── Tip box ── */
+  .tip-box {
+    background: var(--surface);
+    border-left: 4px solid #C8A84B;
+    border-radius: 0 6px 6px 0;
+    padding: 1rem 1.2rem;
+    margin: 1.6rem 0;
+  }
+  .tip-box strong {
+    color: var(--link);
+    display: block;
+    margin-bottom: .3rem;
+    font-size: .82rem;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+  }
+  .tip-box p { margin: 0; font-size: .95rem; }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) .tip-box strong { color: #e8c96a; }
+    :root:not([data-theme="light"]) .compare-card__label { color: #e8c96a; }
+  }
+  :root[data-theme="dark"] .tip-box strong { color: #e8c96a; }
+  :root[data-theme="dark"] .compare-card__label { color: #e8c96a; }
+
+  /* ── Savings callout ── */
+  .savings-banner {
+    background: #1E2B3C;
+    color: #fff;
+    border-radius: 8px;
+    padding: 1.4rem 1.5rem;
+    margin: 2rem 0;
+    display: flex;
+    align-items: center;
+    gap: 1.1rem;
+    flex-wrap: wrap;
+  }
+  .savings-banner__icon { font-size: 2rem; flex-shrink: 0; }
+  .savings-banner__text { flex: 1; min-width: 200px; }
+  .savings-banner__text strong { color: #C8A84B; display: block; font-size: 1.1rem; margin-bottom: .2rem; }
+  .savings-banner__text span { font-size: .93rem; color: rgba(255,255,255,.8); }
+
+  /* ── Location cards ── */
+  .loc-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
+    gap: 1rem;
+    margin: 1.5rem 0 2rem;
+  }
+  .loc-card {
+    border: 1.5px solid var(--border);
+    border-radius: 8px;
+    padding: 1.2rem 1.1rem;
+  }
+  .loc-card strong {
+    display: block;
+    margin-bottom: .25rem;
+    color: var(--link);
+    font-size: .95rem;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) .loc-card strong { color: #e8c96a; }
+  }
+  :root[data-theme="dark"] .loc-card strong { color: #e8c96a; }
+  .loc-card p { margin: .2rem 0; font-size: .92rem; color: var(--fg); }
+  .loc-card a { color: var(--link); font-weight: 600; font-size: .9rem; }
+
+  /* ── FAQ ── */
+  .faq { margin: 1.5rem 0; }
+  .faq__item { border-bottom: 1px solid var(--border); padding: 1rem 0; }
+  .faq__q { font-weight: 700; color: var(--fg); margin-bottom: .4rem; font-size: .98rem; }
+  .faq__a { font-size: .95rem; color: var(--muted); line-height: 1.65; margin: 0; }
+
+  .article-wrap a:not([class]) { color: var(--link); text-underline-offset: .15em; }
   /* CTA block */
   .cta-block {
     background: var(--navy);
@@ -220,30 +323,6 @@
   }
   .btn-outline:hover { background: var(--gold); color: var(--navy); }
 
-  /* Location cards */
-  .location-cards {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-    margin: 1rem 0 1.5rem;
-  }
-  @media (max-width: 480px) { .location-cards { grid-template-columns: 1fr; } }
-  .loc-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 1rem;
-  }
-  .loc-card strong {
-    display: block;
-    margin-bottom: .25rem;
-    color: #7a6020;
-    font-size: .95rem;
-  }
-  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .loc-card strong { color: var(--gold-light); } }
-  :root[data-theme="dark"] .loc-card strong { color: var(--gold-light); }
-  .loc-card span { font-size: .875rem; color: var(--muted); }
-
   /* Footer */
   .site-footer {
     background: var(--navy);
@@ -266,98 +345,149 @@
   <a href="location-margate.html">Margate</a>
 </header>
 
-<div class="hero">
-  <p class="hero-eyebrow">Black Friday 2026</p>
-  <h1>Skip the Mall.<br>Shop Florida Pawn This Black Friday.</h1>
-  <p class="hero-subtitle">No parking lot chaos. No 4 AM lines. Just genuine deals on jewelry, electronics, tools, and luxury watches — every single day.</p>
-  <p class="hero-meta">November 2026 &nbsp;·&nbsp; 5 min read &nbsp;·&nbsp; <span>Florida Pawn</span></p>
+<div class="bf-hero">
+  <span class="bf-hero__tag">Black Friday 2026</span>
+  <h1>Skip the Mall.<br>Shop <span>Florida Pawn</span> This Black Friday.</h1>
+  <p class="bf-hero__sub">No parking lot chaos. No 4 AM lines. Just genuine deals on jewelry, electronics, tools, and luxury watches — every single day.</p>
+  <div class="bf-hero__meta">November 2026 &nbsp;·&nbsp; 5 min read</div>
 </div>
 
 <main><article class="article-wrap">
 
-  <p class="lead">Black Friday is supposed to be about savings. But somewhere between the midnight store openings, the checkout-site crashes, and the doorbuster TVs that sell out in 90 seconds, the actual deals get hard to find. Florida Pawn offers something different: real, negotiable prices on quality merchandise — not just one Friday, but every day of the year.</p>
+  <p>Black Friday is supposed to be about savings. But somewhere between the midnight store openings, the checkout-site crashes, and the doorbuster TVs that sell out in 90 seconds, the actual deals get hard to find. Florida Pawn offers something different: real, negotiable prices on quality merchandise — not just one Friday, but every day of the year.</p>
+
+  <p>Whether you're shopping for gifts or looking to <a href="pawn-loans.html">get quick cash before the holidays</a>, both of our Broward County locations have you covered.</p>
+
   <p>If you're in Broward County this Thanksgiving weekend and looking to stretch your dollar, here's why walking into one of our two locations might be the best shopping decision you make all season.</p>
 
   <h2>Pawn Shop Prices Beat Retail — Without the Gimmicks</h2>
-  <p>Retailers mark prices up weeks before Black Friday so the &quot;60% off&quot; tag looks impressive. Pawn shop pricing doesn't work that way. Items are priced based on current resale value — full stop. When you buy a diamond ring, a Sony camera, or a DeWalt drill at Florida Pawn, you're paying what that item is actually worth in today's market, not a manufactured MSRP with a dramatic slash through it.</p>
+
+  <p>Retailers mark prices up weeks before Black Friday so the "60% off" tag looks impressive. Pawn shop pricing doesn't work that way. Items are priced based on current resale value — full stop. When you buy a diamond ring, a Sony camera, or a DeWalt drill at Florida Pawn, you're paying what that item is actually worth in today's market, not a manufactured MSRP with a dramatic slash through it.</p>
+
   <p>On some categories — gold jewelry, luxury watches, name-brand electronics — you'll consistently save more than any Black Friday sale could offer.</p>
 
-  <div class="tip-box">
-    <strong>The math is simple.</strong>
-    A pre-owned Rolex Datejust at Florida Pawn typically sells for 20–40% less than a gray-market dealer and 50%+ less than retail MSRP — with no &quot;limited supply&quot; pressure.
+  <div class="savings-banner">
+    <div class="savings-banner__icon">💡</div>
+    <div class="savings-banner__text">
+      <strong>The math is simple.</strong>
+      <span>A pre-owned Rolex Datejust at Florida Pawn typically sells for 20–40% less than a gray-market dealer and 50%+ less than retail MSRP — with no "limited supply" pressure.</span>
+    </div>
   </div>
 
   <h2>What You'll Find at Florida Pawn This Season</h2>
+
   <p>Our inventory changes constantly — that's part of what makes browsing fun. But heading into the holiday season, here are the categories we're well-stocked in:</p>
+
+  <p>Browse our dedicated pages for <a href="jewelry-diamonds.html">jewelry &amp; diamonds</a>, <a href="watches.html">luxury watches</a>, <a href="electronics.html">electronics</a>, and <a href="power-tools.html">power tools</a> to get a sense of what we carry.</p>
+
   <div class="item-grid">
-    <div class="item-pill">Fine Jewelry</div>
-    <div class="item-pill">Luxury Watches</div>
-    <div class="item-pill">Laptops</div>
-    <div class="item-pill">iPhones &amp; iPads</div>
-    <div class="item-pill">Gaming Consoles</div>
-    <div class="item-pill">Cameras &amp; Lenses</div>
-    <div class="item-pill">Power Tools</div>
-    <div class="item-pill">Musical Instruments</div>
-    <div class="item-pill">Fitness Equipment</div>
-    <div class="item-pill">Diamond Rings</div>
-    <div class="item-pill">Audio Gear</div>
-    <div class="item-pill">Sporting Goods</div>
+    <div class="item-chip"><span class="item-chip__icon">💍</span> Fine Jewelry</div>
+    <div class="item-chip"><span class="item-chip__icon">⌚</span> Luxury Watches</div>
+    <div class="item-chip"><span class="item-chip__icon">💻</span> Laptops</div>
+    <div class="item-chip"><span class="item-chip__icon">📱</span> iPhones &amp; iPads</div>
+    <div class="item-chip"><span class="item-chip__icon">🎮</span> Gaming Consoles</div>
+    <div class="item-chip"><span class="item-chip__icon">📷</span> Cameras &amp; Lenses</div>
+    <div class="item-chip"><span class="item-chip__icon">🔧</span> Power Tools</div>
+    <div class="item-chip"><span class="item-chip__icon">🎸</span> Musical Instruments</div>
+    <div class="item-chip"><span class="item-chip__icon">🏋️</span> Fitness Equipment</div>
+    <div class="item-chip"><span class="item-chip__icon">💎</span> Diamond Rings</div>
+    <div class="item-chip"><span class="item-chip__icon">🔊</span> Audio Gear</div>
+    <div class="item-chip"><span class="item-chip__icon">🎯</span> Sporting Goods</div>
   </div>
 
   <div class="tip-box">
     <strong>Gift Shopping?</strong>
-    Jewelry and watches make excellent gifts and hold their value. A piece from Florida Pawn at 40% below retail is indistinguishable from something bought at a department store — and far more thoughtful than a last-minute Amazon order.
+    <p>Jewelry and watches make excellent gifts and hold their value. A piece from Florida Pawn at 40% below retail is indistinguishable from something bought at a department store — and far more thoughtful than a last-minute Amazon order.</p>
   </div>
 
   <h2>Florida Pawn vs. Black Friday: A Real Comparison</h2>
-  <h3>Florida Pawn — Every day is deal day</h3>
-  <p>Fair market pricing year-round. No manufactured discounts. Walk in, browse, buy — or make an offer.</p>
-  <h3>Big Box Retail — One day, limited stock</h3>
-  <p>Doorbusters sell out in minutes. Many &quot;deals&quot; are on lower-spec models made specifically for Black Friday.</p>
-  <h3>Online Marketplaces — Great prices, real risk</h3>
-  <p>Private sellers on eBay or Facebook Marketplace offer no guarantees, no returns, and plenty of counterfeits.</p>
+
+  <div class="compare-grid">
+    <div class="compare-card compare-card--gold">
+      <span class="compare-card__label">Florida Pawn</span>
+      <div class="compare-card__title">Every day is deal day</div>
+      <div class="compare-card__detail">Fair market pricing year-round. No manufactured discounts. Walk in, browse, buy — or make an offer.</div>
+    </div>
+    <div class="compare-card">
+      <span class="compare-card__label">Big Box Retail</span>
+      <div class="compare-card__title">One day, limited stock</div>
+      <div class="compare-card__detail">Doorbusters sell out in minutes. Many "deals" are on lower-spec models made specifically for Black Friday.</div>
+    </div>
+    <div class="compare-card">
+      <span class="compare-card__label">Online Marketplaces</span>
+      <div class="compare-card__title">Great prices, real risk</div>
+      <div class="compare-card__detail">Private sellers on eBay or Facebook Marketplace offer no guarantees, no returns, and plenty of counterfeits.</div>
+    </div>
+  </div>
 
   <h2>You Can Negotiate — That's Not Rude, That's the Business</h2>
+
   <p>Unlike retail, pawn shop prices are often negotiable. If you're buying multiple items, or you've done your research on the value of a specific piece, it's completely acceptable to have that conversation. Our staff knows the inventory and knows the market — they'd rather work with a serious buyer than lose a sale.</p>
+
   <p>Come in knowing what you want. Look it up beforehand. Ask questions. That's exactly how smart pawn shop shopping works.</p>
 
   <h2>Need Quick Cash Before the Holidays? We Buy Too.</h2>
-  <p>Black Friday cuts both ways. If you need extra cash for holiday shopping, Florida Pawn buys items outright — gold, jewelry, electronics, tools, luxury goods. No appointment needed. Walk in, get a free evaluation, and walk out with cash the same day.</p>
-  <p>Or if you'd rather hold onto your item, a pawn loan lets you use it as collateral for quick short-term cash — no credit check, no application, no waiting.</p>
+
+  <p>Black Friday cuts both ways. If you need extra cash for holiday shopping, Florida Pawn buys items outright — <a href="gold-silver.html">gold</a>, <a href="jewelry-diamonds.html">jewelry</a>, <a href="electronics.html">electronics</a>, tools, <a href="watches.html">luxury goods</a>. No appointment needed. Walk in, get a free evaluation, and walk out with cash the same day.</p>
+
+  <p>Or if you'd rather hold onto your item, a <a href="pawn-loans.html">pawn loan</a> lets you use it as collateral for quick short-term cash — no credit check, no application, no waiting.</p>
 
   <div class="tip-box">
     <strong>Pro Tip</strong>
-    Bring in old gold jewelry, broken chains, or single earrings before the holidays. Gold prices are historically strong right now, and we pay top dollar based on actual weight and karat — not a lowball guess.
+    <p>Bring in old gold jewelry, broken chains, or single earrings before the holidays. Gold prices are historically strong right now, and we pay top dollar based on actual weight and karat — not a lowball guess.</p>
   </div>
 
-  <h2>Two Broward County Locations<br>Open Through the Holiday Weekend</h2>
+  <h2>Two Broward County Locations Open Through the Holiday Weekend</h2>
+
   <p>Both Florida Pawn locations will be open through Thanksgiving weekend. No need to fight I-95 traffic to get to a mall.</p>
-  <div class="location-cards">
+
+  <div class="loc-grid">
     <div class="loc-card">
       <strong>Hollywood Location</strong>
-      <span>1944 Hollywood Blvd<br>Hollywood, FL 33020<br>Mon–Sat: 9 AM – 5 PM<br>Sun: 11 AM – 4 PM<br>(954) 922-2015</span>
+      <p>1944 Hollywood Blvd<br>Hollywood, FL 33020</p>
+      <p>Mon–Sat: 9 AM – 5 PM<br>Sun: 11 AM – 4 PM</p>
+      <p><a href="tel:+19549222015">(954) 922-2015</a></p>
     </div>
     <div class="loc-card">
       <strong>Margate Location</strong>
-      <span>1303 FL-7<br>Margate, FL 33063<br>Mon–Sat: 9 AM – 5 PM<br>Sun: 11 AM – 4 PM<br>(954) 974-2055</span>
+      <p>1303 FL-7<br>Margate, FL 33063</p>
+      <p>Mon–Sat: 9 AM – 5 PM<br>Sun: 11 AM – 4 PM</p>
+      <p><a href="tel:+19549742055">(954) 974-2055</a></p>
     </div>
   </div>
 
   <h2>Frequently Asked Questions</h2>
-  <h3>Can I return something I buy at a pawn shop?</h3>
-  <p>Florida Pawn stands behind its merchandise. Ask our staff about the return policy on specific items — electronics in particular are tested before sale.</p>
-  <h3>Are items at a pawn shop authentic?</h3>
-  <p>Yes. We evaluate every item that comes through the door. Jewelry is tested for karat and authenticity, watches are inspected for genuine movements and markings, and electronics are tested before they hit the floor.</p>
-  <h3>Do you have layaway or payment plans?</h3>
-  <p>Ask in-store — our staff can discuss options depending on the item and price point.</p>
-  <h3>What's the best time to come in for the most selection?</h3>
-  <p>Early in the week tends to bring fresh inventory. That said, new items come in daily, so there's no bad time to browse.</p>
-  <h3>I want to sell something before the holidays. What should I bring?</h3>
-  <p>Gold jewelry, diamond rings, luxury watches, iPhones, laptops, and power tools all move quickly this time of year. Bring a valid ID and the item — we'll give you a free, no-obligation quote on the spot.</p>
+
+  <div class="faq">
+    <div class="faq__item">
+      <div class="faq__q">Can I return something I buy at a pawn shop?</div>
+      <p class="faq__a">Florida Pawn stands behind its merchandise. Ask our staff about the return policy on specific items — electronics in particular are tested before sale.</p>
+    </div>
+    <div class="faq__item">
+      <div class="faq__q">Are items at a pawn shop authentic?</div>
+      <p class="faq__a">Yes. We evaluate every item that comes through the door. Jewelry is tested for karat and authenticity, watches are inspected for genuine movements and markings, and electronics are tested before they hit the floor.</p>
+    </div>
+    <div class="faq__item">
+      <div class="faq__q">Do you have layaway or payment plans?</div>
+      <p class="faq__a">Ask in-store — our staff can discuss options depending on the item and price point.</p>
+    </div>
+    <div class="faq__item">
+      <div class="faq__q">What's the best time to come in for the most selection?</div>
+      <p class="faq__a">Early in the week tends to bring fresh inventory. That said, new items come in daily, so there's no bad time to browse.</p>
+    </div>
+    <div class="faq__item">
+      <div class="faq__q">I want to sell something before the holidays. What should I bring?</div>
+      <p class="faq__a">Gold jewelry, diamond rings, luxury watches, iPhones, laptops, and power tools all move quickly this time of year. Bring a valid ID and the item — we'll give you a free, no-obligation quote on the spot.</p>
+    </div>
+  </div>
 
   <h2>The Bottom Line</h2>
+
   <p>Black Friday is a marketing event. Florida Pawn is a real store with real prices on real merchandise. If you're in Hollywood or Margate this holiday weekend — or any weekend — come see what's on the floor. You might walk out with the best deal you found all season, without ever setting foot in a mall.</p>
-  <p><strong>Florida Pawn — Hollywood &amp; Margate, FL. We pay the most for your items.</strong></p>
+
+  <p><strong>Florida Pawn — <a href="location-hollywood.html">Hollywood</a> &amp; <a href="location-margate.html">Margate</a>, FL. We pay the most for your items.</strong></p>
+
+  <p>Want to know more before you come in? Read <a href="how-it-works.html">how the pawn process works</a> or check out our other guides on <a href="blog-pawn-loans-no-credit-check.html">pawn loans with no credit check</a>.</p>
 
   <div class="cta-block">
     <h3>Shop Florida Pawn This Black Friday</h3>
@@ -368,7 +498,8 @@
     </div>
   </div>
 
-</article></main>
+</article>
+</main>
 
 <footer class="site-footer">
   &copy; 2026 Florida Pawn &nbsp;&middot;&nbsp;
