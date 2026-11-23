@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Layaway for the Holidays at Florida Pawn | Hollywood & Margate FL</title>
+<meta name="description" content="Florida Pawn's layaway program lets you lock in today's price on jewelry, watches, electronics, and more — pay over time, no credit check required. Perfect for holiday gifting in Broward County.">
+<link rel="canonical" href="https://flpawn.com/blog-layaway-holiday.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600&display=swap">
+<!-- Vercel Web Analytics is cookieless; optional cookie-based scripts stay consent-gated. -->
+<script>
+  window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+</script>
+<script defer src="/_vercel/insights/script.js"></script>
+
+<style>
+  :root {
+    --navy: #1E2B3C;
+    --gold: #C8A84B;
+    --gold-light: #e8c96a;
+    --bg: #ffffff;
+    --fg: #1a1a1a;
+    --muted: #555e6d;
+    --surface: #f4f6f9;
+    --border: #dde2ea;
+    --link: #7a6020;
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #111820;
+      --fg: #e8edf4;
+      --muted: #8a96a8;
+      --surface: #1a2330;
+      --border: #2a3545;
+      --link: #e8c96a;
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #111820;
+    --fg: #e8edf4;
+    --muted: #8a96a8;
+    --surface: #1a2330;
+    --border: #2a3545;
+    --link: #e8c96a;
+    color-scheme: dark;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--fg);
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  /* Header */
+  .site-header {
+    background: var(--navy);
+    padding: 1rem 1.5rem;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  .site-header a {
+    color: var(--gold);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: .95rem;
+  }
+  .site-header a:hover { color: var(--gold-light); }
+  .header-brand {
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin-right: auto;
+  }
+
+
+  /* ── Hero ── */
+  .lay-hero {
+    background: linear-gradient(135deg, #1E2B3C 0%, #0d1a2a 55%, #1a2800 100%);
+    color: #fff;
+    text-align: center;
+    padding: 3.5rem 1.5rem 3rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .lay-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 50% 0%, rgba(200,168,75,.16) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .lay-hero__tag {
+    display: inline-block;
+    background: #C8A84B;
+    color: #1E2B3C;
+    font-size: .72rem;
+    font-weight: 700;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    padding: .3rem .8rem;
+    border-radius: 2px;
+    margin-bottom: 1.2rem;
+  }
+  .lay-hero h1 {
+    font-size: clamp(1.6rem, 5vw, 2.6rem);
+    font-weight: 800;
+    line-height: 1.2;
+    max-width: 740px;
+    margin: 0 auto 1rem;
+    text-wrap: balance;
+  }
+  .lay-hero h1 span { color: #C8A84B; }
+  .lay-hero__sub {
+    font-size: 1.05rem;
+    color: rgba(255,255,255,.78);
+    max-width: 540px;
+    margin: 0 auto 1.8rem;
+    line-height: 1.6;
+  }
+  .lay-hero__meta {
+    font-size: .82rem;
+    color: rgba(255,255,255,.5);
+    letter-spacing: .04em;
+  }
+
+  /* ── Article layout ── */
+  .article-wrap {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 2.5rem 1.25rem 3rem;
+  }
+  .article-wrap h2 {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--navy, #1E2B3C);
+    margin: 2.4rem 0 .7rem;
+    text-wrap: balance;
+  }
+  .article-wrap p {
+    font-size: 1rem;
+    line-height: 1.75;
+    color: var(--text, #333);
+    margin-bottom: 1.1rem;
+  }
+
+  /* ── How it works steps ── */
+  .steps {
+    counter-reset: step;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin: 1.4rem 0 2rem;
+  }
+  .step {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    background: #fafaf8;
+    border: 1.5px solid #e4e0d4;
+    border-radius: 8px;
+    padding: 1.1rem 1.2rem;
+  }
+  .step__num {
+    counter-increment: step;
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
+    background: #1E2B3C;
+    color: #C8A84B;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: .95rem;
+  }
+  .step__num::before { content: counter(step); }
+  .step__body { flex: 1; }
+  .step__title {
+    font-weight: 700;
+    color: #1E2B3C;
+    font-size: 1rem;
+    margin-bottom: .25rem;
+  }
+  .step__detail {
+    font-size: .93rem;
+    color: #555;
+    line-height: 1.55;
+    margin: 0;
+  }
+
+  /* ── Benefit cards ── */
+  .benefit-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+    margin: 1.4rem 0 2rem;
+  }
+  .benefit-card {
+    border: 1.5px solid #e4e0d4;
+    border-radius: 8px;
+    padding: 1.2rem 1.1rem;
+    background: #fafaf8;
+  }
+  .benefit-card__icon { font-size: 1.6rem; margin-bottom: .5rem; display: block; }
+  .benefit-card__title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #1E2B3C;
+    margin-bottom: .4rem;
+  }
+  .benefit-card__detail {
+    font-size: .9rem;
+    color: #555;
+    line-height: 1.55;
+    margin: 0;
+  }
+
+  /* ── Item chips ── */
+  .item-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: .75rem;
+    margin: 1.2rem 0 1.8rem;
+  }
+  .item-chip {
+    background: #f4f1ea;
+    border: 1px solid #e0d9c8;
+    border-radius: 6px;
+    padding: .65rem .9rem;
+    font-size: .9rem;
+    font-weight: 600;
+    color: #1E2B3C;
+    display: flex;
+    align-items: center;
+    gap: .45rem;
+  }
+  .item-chip__icon { font-size: 1.1rem; }
+
+  /* ── Tip / callout box ── */
+  .tip-box {
+    background: #fffbef;
+    border-left: 4px solid #C8A84B;
+    border-radius: 0 6px 6px 0;
+    padding: 1rem 1.2rem;
+    margin: 1.6rem 0;
+  }
+  .tip-box strong {
+    color: #7a6020;
+    display: block;
+    margin-bottom: .3rem;
+    font-size: .82rem;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+  }
+  .tip-box p { margin: 0; font-size: .95rem; }
+
+  /* ── Savings banner ── */
+  .savings-banner {
+    background: #1E2B3C;
+    color: #fff;
+    border-radius: 8px;
+    padding: 1.4rem 1.5rem;
+    margin: 2rem 0;
+    display: flex;
+    align-items: center;
+    gap: 1.1rem;
+    flex-wrap: wrap;
+  }
+  .savings-banner__icon { font-size: 2rem; flex-shrink: 0; }
+  .savings-banner__text { flex: 1; min-width: 200px; }
+  .savings-banner__text strong { color: #C8A84B; display: block; font-size: 1.1rem; margin-bottom: .2rem; }
+  .savings-banner__text span { font-size: .93rem; color: rgba(255,255,255,.8); }
+
+  /* ── Compare table ── */
+  .compare-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin: 1.4rem 0 2rem;
+  }
+  .compare-card {
+    border: 1.5px solid #e4e0d4;
+    border-radius: 8px;
+    padding: 1.2rem 1.1rem;
+    background: #fafaf8;
+  }
+  .compare-card--gold {
+    border-color: #C8A84B;
+    background: #fffef5;
+  }
+  .compare-card__label {
+    font-size: .72rem;
+    font-weight: 700;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: #7a6020;
+    margin-bottom: .4rem;
+    display: block;
+  }
+  .compare-card__title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #1E2B3C;
+    margin-bottom: .5rem;
+  }
+  .compare-card__detail {
+    font-size: .9rem;
+    color: #555;
+    line-height: 1.55;
+  }
+
+  /* ── Location cards ── */
+  .loc-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    margin: 1.5rem 0 2rem;
+  }
+  .loc-card {
+    border: 1.5px solid #e4e0d4;
+    border-radius: 8px;
+    padding: 1.2rem 1.1rem;
+  }
+  .loc-card strong { display: block; margin-bottom: .25rem; color: #7a6020; font-size: .95rem; }
+  .loc-card address { font-style: normal; font-size: .9rem; color: #444; line-height: 1.6; }
+  .loc-card a { color: #9a7830; font-weight: 600; }
+
+  /* ── FAQ ── */
+  .faq { margin: 1.4rem 0 2rem; display: flex; flex-direction: column; gap: .85rem; }
+  .faq-item { border: 1.5px solid #e4e0d4; border-radius: 8px; padding: 1rem 1.1rem; }
+  .faq-item__q { font-weight: 700; color: #1E2B3C; margin-bottom: .4rem; font-size: .97rem; }
+  .faq-item__a { font-size: .92rem; color: #555; line-height: 1.6; margin: 0; }
+
+  /* ── Dark mode ── */
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      .lay-hero { background: linear-gradient(135deg,#0d1520 0%,#060e18 55%,#0d1600 100%); }
+      .step, .benefit-card, .compare-card, .faq-item, .loc-card { background: rgba(255,255,255,.04); border-color: rgba(255,255,255,.1); }
+      .step__title, .benefit-card__title, .compare-card__title, .faq-item__q { color: #e8e8e8; }
+      .step__detail, .benefit-card__detail, .compare-card__detail, .faq-item__a, .loc-card address { color: #aaa; }
+      .item-chip { background: rgba(255,255,255,.06); border-color: rgba(255,255,255,.12); color: #e0e0e0; }
+      .tip-box { background: rgba(200,168,75,.08); }
+      .tip-box strong, .compare-card__label, .loc-card strong { color: #e8c96a; }
+      .compare-card--gold { background: rgba(200,168,75,.06); border-color: rgba(200,168,75,.4); }
+      .article-wrap h2 { color: #e8e8e8; }
+      .article-wrap p { color: #ccc; }
+    }
+  }
+  :root[data-theme="dark"] {
+    .lay-hero { background: linear-gradient(135deg,#0d1520 0%,#060e18 55%,#0d1600 100%); }
+    .step, .benefit-card, .compare-card, .faq-item, .loc-card { background: rgba(255,255,255,.04); border-color: rgba(255,255,255,.1); }
+    .step__title, .benefit-card__title, .compare-card__title, .faq-item__q { color: #e8e8e8; }
+    .step__detail, .benefit-card__detail, .compare-card__detail, .faq-item__a, .loc-card address { color: #aaa; }
+    .item-chip { background: rgba(255,255,255,.06); border-color: rgba(255,255,255,.12); color: #e0e0e0; }
+    .tip-box { background: rgba(200,168,75,.08); }
+    .tip-box strong, .compare-card__label, .loc-card strong { color: #e8c96a; }
+    .compare-card--gold { background: rgba(200,168,75,.06); border-color: rgba(200,168,75,.4); }
+    .article-wrap h2 { color: #e8e8e8; }
+    .article-wrap p { color: #ccc; }
+  }
+  /* Footer */
+  .site-footer {
+    background: var(--navy);
+    color: #8a96a8;
+    text-align: center;
+    font-size: .8rem;
+    padding: 1.5rem;
+  }
+  .site-footer a { color: var(--gold); text-decoration: none; }
+
+  a { color: var(--link); }
+  a:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+  .article-wrap { overflow-wrap: anywhere; }
+  .article-wrap h2 { color: var(--fg); }
+  .article-wrap p { color: var(--fg); }
+  .article-wrap a[style] { color: var(--link) !important; }
+  .step__body { min-width: 0; }
+  .loc-grid { grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr)); }
+</style>
+<script src="cookie-consent.js" defer></script>
+</head>
+<body>
+
+<header class="site-header">
+  <span class="header-brand">Florida Pawn</span>
+  <a href="index.html">Home</a>
+  <a href="blog.html">Blog</a>
+  <a href="location-hollywood.html">Hollywood</a>
+  <a href="location-margate.html">Margate</a>
+</header>
+
+<!-- HERO -->
+<header class="lay-hero">
+  <div style="position:relative;z-index:1;">
+    <span class="lay-hero__tag">Holiday Shopping Tips</span>
+    <h1>How Florida Pawn's <span>Layaway Program</span> Makes Holiday Gifting Easy</h1>
+    <p class="lay-hero__sub">Lock in today's price on jewelry, watches, and electronics — pay a little at a time, no credit check, no interest. The smart way to shop for the holidays in Broward County.</p>
+    <p class="lay-hero__meta">Florida Pawn · Hollywood &amp; Margate, FL · November 2026</p>
+  </div>
+</header>
+
+<main>
+<article class="article-wrap">
+
+  <p>The holidays have a way of sneaking up on you. One minute it's Halloween, the next you're two weeks out from Christmas and scrambling to find a meaningful gift that doesn't blow your budget. That's where Florida Pawn's layaway program comes in — a simple, flexible way to hold the item you want today and pay for it over time, with zero interest and no credit check.</p>
+
+  <p>Whether you've spotted a Rolex at our <a href="location-hollywood.html" style="color:#9a7830;font-weight:600;text-decoration:underline;text-decoration-color:rgba(154,120,48,.35);text-underline-offset:2px;">Hollywood location</a>, a diamond ring at <a href="location-margate.html" style="color:#9a7830;font-weight:600;text-decoration:underline;text-decoration-color:rgba(154,120,48,.35);text-underline-offset:2px;">Margate</a>, or a PS5 bundle you know someone would love — layaway lets you lock it in before it's gone.</p>
+
+  <h2>What Is Layaway, and How Does It Work at Florida Pawn?</h2>
+
+  <p><a href="https://www.investopedia.com/terms/l/layaway.asp" target="_blank" rel="noopener">Layaway</a> is an old-school concept with a lot of modern appeal: you put a deposit on an item, we hold it for you, and you make payments until it's paid off — then you take it home. No financing, no interest, no credit pull. Just a straightforward agreement between you and us.</p>
+
+  <div class="steps">
+    <div class="step">
+      <div class="step__num"></div>
+      <div class="step__body">
+        <div class="step__title">Pick your item</div>
+        <p class="step__detail">Browse our in-store inventory at Hollywood or Margate. See something you love — a watch, a piece of jewelry, electronics — and let us know you want to put it on layaway.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step__num"></div>
+      <div class="step__body">
+        <div class="step__title">Put down a deposit</div>
+        <p class="step__detail">A small deposit holds the item. We take it off the floor so no one else can buy it while you're paying it off.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step__num"></div>
+      <div class="step__body">
+        <div class="step__title">Make payments on your schedule</div>
+        <p class="step__detail">Stop in whenever works for you and make payments toward the balance. There's no rigid payment calendar — just pay it down before the agreed pickup date.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step__num"></div>
+      <div class="step__body">
+        <div class="step__title">Pick it up when it's paid off</div>
+        <p class="step__detail">Once the balance is zeroed out, the item is yours. Walk out with it in time for the holidays — no last-minute shipping anxiety, no sold-out disappointments.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="tip-box">
+    <strong>Pro tip</strong>
+    <p>The earlier in the season you start, the more time you have to pay it down comfortably. Items put on layaway now give you several weeks of breathing room before the holidays hit.</p>
+  </div>
+
+  <h2>Why Layaway Makes Sense for Holiday Gifts</h2>
+
+  <p>Credit card debt from holiday shopping is one of the most common financial regrets people report every January. <a href="https://www.nerdwallet.com/article/finance/holiday-debt" target="_blank" rel="noopener">Holiday spending surveys</a> consistently show the average American puts over $900 on gifts — a significant chunk of which lands on credit cards at 20–30% interest and lingers into the new year. The <a href="https://www.consumerfinance.gov/consumer-tools/credit-cards/" target="_blank" rel="noopener">Consumer Financial Protection Bureau</a> recommends avoiding high-interest debt for holiday purchases whenever possible. Layaway sidesteps that trap entirely.</p>
+
+  <div class="benefit-grid">
+    <div class="benefit-card">
+      <span class="benefit-card__icon">🚫</span>
+      <div class="benefit-card__title">No Interest, Ever</div>
+      <p class="benefit-card__detail">What you see is what you pay. We don't charge interest on layaway balances — unlike putting a gift on a credit card and carrying the balance into the new year.</p>
+    </div>
+    <div class="benefit-card">
+      <span class="benefit-card__icon">📋</span>
+      <div class="benefit-card__title">No Credit Check</div>
+      <p class="benefit-card__detail">We don't pull your credit. Layaway is a cash-based agreement — it doesn't affect your credit score and doesn't require approval.</p>
+    </div>
+    <div class="benefit-card">
+      <span class="benefit-card__icon">🔒</span>
+      <div class="benefit-card__title">Price Locked In</div>
+      <p class="benefit-card__detail">Once you put an item on layaway, the price is set. If the item increases in value or sells out elsewhere, you've already secured it at today's price.</p>
+    </div>
+    <div class="benefit-card">
+      <span class="benefit-card__icon">🎁</span>
+      <div class="benefit-card__title">No Last-Minute Scramble</div>
+      <p class="benefit-card__detail">The item is held for you. No refreshing sold-out pages, no overnight shipping fees, no settling for second-best because the first choice is gone.</p>
+    </div>
+    <div class="benefit-card">
+      <span class="benefit-card__icon">💸</span>
+      <div class="benefit-card__title">Budget-Friendly Payments</div>
+      <p class="benefit-card__detail">Break a larger purchase into smaller chunks that fit your pay cycle. It's the same item at the same price — just paid for in a way that doesn't strain your wallet.</p>
+    </div>
+    <div class="benefit-card">
+      <span class="benefit-card__icon">🤝</span>
+      <div class="benefit-card__title">Personal Service</div>
+      <p class="benefit-card__detail">You're working with our team directly — not an algorithm. If you have questions or need flexibility, you can talk to a real person at our store.</p>
+    </div>
+  </div>
+
+  <h2>What Can You Put on Layaway?</h2>
+
+  <p>Almost anything in our inventory is eligible for layaway. Some of the most popular layaway items this holiday season:</p>
+
+  <div class="item-grid">
+    <div class="item-chip"><span class="item-chip__icon">💎</span> Diamond rings</div>
+    <div class="item-chip"><span class="item-chip__icon">📿</span> Gold chains &amp; bracelets</div>
+    <div class="item-chip"><span class="item-chip__icon">⌚</span> Luxury watches</div>
+    <div class="item-chip"><span class="item-chip__icon">📱</span> iPhones</div>
+    <div class="item-chip"><span class="item-chip__icon">💻</span> MacBooks &amp; laptops</div>
+    <div class="item-chip"><span class="item-chip__icon">🎮</span> Gaming consoles</div>
+    <div class="item-chip"><span class="item-chip__icon">📷</span> Cameras</div>
+    <div class="item-chip"><span class="item-chip__icon">🔧</span> Power tools</div>
+  </div>
+
+  <p>Browse our full selection in person at either location. Inventory changes daily as new items come in — if you've been eyeing something specific, the best time to claim it is before someone else does.</p>
+
+  <h2>Layaway vs. Buying on Credit: A Real Comparison</h2>
+
+  <p>Let's say you're buying a <a href="watches.html" style="color:#9a7830;font-weight:600;text-decoration:underline;text-decoration-color:rgba(154,120,48,.35);text-underline-offset:2px;">pre-owned luxury watch</a> as a gift — priced at $1,200 at Florida Pawn.</p>
+
+  <div class="compare-grid">
+    <div class="compare-card">
+      <span class="compare-card__label">Credit Card</span>
+      <div class="compare-card__title">$1,200 + interest</div>
+      <p class="compare-card__detail">At 24% APR, carrying that balance for 6 months adds roughly $85–$120 in interest on top of the purchase price. You're paying more for the same watch.</p>
+    </div>
+    <div class="compare-card">
+      <span class="compare-card__label">Retail Financing</span>
+      <div class="compare-card__title">$1,200 + fees &amp; credit pull</div>
+      <p class="compare-card__detail">Many "deferred interest" financing plans charge all accrued interest retroactively if you don't pay in full before the promo period ends — a <a href="https://consumer.ftc.gov/articles/how-deferred-interest-offers-can-cost-you" target="_blank" rel="noopener">trap the FTC warns consumers about</a>. And they check your credit.</p>
+    </div>
+    <div class="compare-card compare-card--gold">
+      <span class="compare-card__label">Florida Pawn Layaway</span>
+      <div class="compare-card__title">$1,200. That's it.</div>
+      <p class="compare-card__detail">Put a deposit down, make payments at your pace, pay zero interest. No credit check. The watch is held for you until it's paid off.</p>
+    </div>
+  </div>
+
+  <div class="savings-banner">
+    <div class="savings-banner__icon">💡</div>
+    <div class="savings-banner__text">
+      <strong>Already getting a deal — then saving on interest too.</strong>
+      <span>Pre-owned luxury items at Florida Pawn are already priced well below retail. Layaway means you lock in that price without paying a cent in interest on top of it.</span>
+    </div>
+  </div>
+
+  <h2>Great Layaway Gift Ideas by Budget</h2>
+
+  <p>Not sure what to put on layaway? Here are some ideas across different price ranges, all typically available in our inventory:</p>
+
+  <p><strong>Under $300</strong> — Gold chains and bracelets, pre-owned iPhones, Nintendo Switch, AirPods, power tool sets, silver jewelry, name-brand watches like Bulova or Seiko.</p>
+
+  <p><strong>$300–$800</strong> — Diamond earrings or pendants, newer iPhones (13/14 series), MacBook Air, PS5 or Xbox Series X, TAG Heuer entry models, gold bangles and rings.</p>
+
+  <p><strong>$800 and up</strong> — <a href="jewelry-diamonds.html" style="color:#9a7830;font-weight:600;text-decoration:underline;text-decoration-color:rgba(154,120,48,.35);text-underline-offset:2px;">Diamond engagement rings</a>, Rolex, Omega, and Breitling watches, gold sets, high-end MacBooks and laptops. These are exactly the items layaway was made for — meaningful gifts worth spreading payments across a few weeks.</p>
+
+  <div class="tip-box">
+    <strong>Need gift ideas?</strong>
+    <p>Check out our guides on <a href="blog-watches-holiday-gift.html" style="color:#9a7830;font-weight:600;text-decoration:underline;text-decoration-color:rgba(154,120,48,.35);text-underline-offset:2px;">why a luxury watch makes the perfect holiday gift</a> and our <a href="blog-black-friday.html" style="color:#9a7830;font-weight:600;text-decoration:underline;text-decoration-color:rgba(154,120,48,.35);text-underline-offset:2px;">Black Friday shopping guide</a> for even more ideas.</p>
+  </div>
+
+  <h2>Can I Use a Pawn Loan AND Layaway?</h2>
+
+  <p>Yes — and it's a smart combination. If you have something valuable sitting around — old <a href="jewelry-diamonds.html" style="color:#9a7830;font-weight:600;text-decoration:underline;text-decoration-color:rgba(154,120,48,.35);text-underline-offset:2px;">jewelry</a>, an unused <a href="electronics.html" style="color:#9a7830;font-weight:600;text-decoration:underline;text-decoration-color:rgba(154,120,48,.35);text-underline-offset:2px;">device</a>, or anything we buy — you can get a <a href="pawn-loans.html" style="color:#9a7830;font-weight:600;text-decoration:underline;text-decoration-color:rgba(154,120,48,.35);text-underline-offset:2px;">pawn loan</a> or sell the item to generate immediate cash, then use that cash as the deposit on a layaway item you want to give as a gift. Turn something you're not using into a holiday gift for someone who'll love it.</p>
+
+  <h2>Frequently Asked Questions</h2>
+
+  <div class="faq">
+    <div class="faq-item">
+      <div class="faq-item__q">How much is the deposit to start layaway?</div>
+      <p class="faq-item__a">Deposits vary by item — stop in or call us and we'll walk you through the specifics for whatever you're interested in. Generally it's a reasonable percentage of the item's price to hold it.</p>
+    </div>
+    <div class="faq-item">
+      <div class="faq-item__q">Is there a deadline to pick up my layaway item?</div>
+      <p class="faq-item__a">Yes — we'll agree on a pickup date when you start the layaway. We work with you to make sure it aligns with the holidays so your gift is ready when you need it.</p>
+    </div>
+    <div class="faq-item">
+      <div class="faq-item__q">What happens if I can't complete my layaway?</div>
+      <p class="faq-item__a">Talk to us before the deadline — we're flexible and would rather work something out than cancel the agreement. Terms for incomplete layaways are discussed at the time of the original agreement.</p>
+    </div>
+    <div class="faq-item">
+      <div class="faq-item__q">Can I layaway multiple items?</div>
+      <p class="faq-item__a">Yes. If you're shopping for more than one person, you can set up layaway on multiple items at the same time.</p>
+    </div>
+    <div class="faq-item">
+      <div class="faq-item__q">Do I need to live locally to use layaway?</div>
+      <p class="faq-item__a">Layaway is an in-store program at our Hollywood and Margate locations. You'll need to come in to start it and pick up the item when it's paid off.</p>
+    </div>
+  </div>
+
+  <h2>Visit Us Before the Holidays</h2>
+
+  <p>Inventory moves fast — especially as the holidays approach. If you've been thinking about a gift, the best time to lock it in is now. Stop into either location, tell us what you're after, and we'll get you set up with layaway today.</p>
+
+  <div class="loc-grid">
+    <div class="loc-card">
+      <strong>Hollywood</strong>
+      <address>
+        1944 Hollywood Blvd<br>
+        Hollywood, FL 33020<br>
+        Mon–Fri 10AM–6PM · Sat 10AM–5PM · Sun closed<br>
+        <a href="tel:+19543537296">(954) 353-7296</a>
+      </address>
+    </div>
+    <div class="loc-card">
+      <strong>Margate</strong>
+      <address>
+        1303 FL-7<br>
+        Margate, FL 33063<br>
+        Mon–Fri 10AM–6PM · Sat 10AM–5PM · Sun closed<br>
+        <a href="tel:+17549995626">(754) 999-5626</a>
+      </address>
+    </div>
+  </div>
+
+  <p>Questions? Call either location and we'll be happy to help. No appointment needed — just walk in.</p>
+
+</article>
+</main>
+
+<footer class="site-footer">
+  &copy; 2026 Florida Pawn &nbsp;&middot;&nbsp;
+  <a href="privacy-policy.html">Privacy Policy</a> &nbsp;&middot;&nbsp;
+  <a href="terms-and-conditions.html">Terms &amp; Conditions</a>
+</footer>
+
+</body>
+</html>
