@@ -48,14 +48,17 @@ test('invalid stored choice asks again without tracking', () => {
   assert.equal(w.tracked, undefined);
   assert.equal(w.document.querySelector('.cookie-consent').hidden, false);
 });
-test('every published page includes shared assets and no legacy notice or active analytics', () => {
+test('every published page includes shared assets and no legacy notice or ungated Google loader', () => {
   for (const file of fs.readdirSync(root).filter(f => f.endsWith('.html'))) {
     const doc = new JSDOM(fs.readFileSync(path.join(root, file), 'utf8')).window.document;
     assert.equal(doc.querySelectorAll('script[src="cookie-consent.js"]').length, 1, file);
     assert.equal(doc.querySelectorAll('link[href="cookie-consent.css"]').length, 0, file);
     assert.equal(doc.querySelectorAll('#cookie-banner, [onclick="dismissCookie()"]').length, 0, file);
     for (const script of doc.scripts) {
-      assert.doesNotMatch(script.src + script.textContent, /googletagmanager|google-analytics|gtag\(/i, file);
+      if (/googletagmanager|google-analytics/i.test(script.src + script.textContent)) {
+        assert.equal(script.type, 'text/plain', file);
+        assert.equal(script.getAttribute('data-cookie-consent'), 'analytics', file);
+      }
     }
   }
 });
