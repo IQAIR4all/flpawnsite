@@ -52,3 +52,33 @@ test('Black Friday update includes the supplied shopping sections and navigation
     assert.ok(fs.existsSync(path.join(root, asset[1])), asset[1]);
   }
 });
+
+for (const name of ['blog-electronics-pawn-value.html', 'blog-watches-holiday-gift.html']) {
+  test(`${name} is listed once, included in the sitemap, and has valid local links and shared assets`, () => {
+    const article = fs.readFileSync(path.join(root, name), 'utf8');
+    const blog = fs.readFileSync(path.join(root, 'blog.html'), 'utf8');
+    const sitemap = fs.readFileSync(path.join(root, 'sitemap.xml'), 'utf8');
+    assert.equal(blog.split(`href="${name}"`).length - 1, 1);
+    assert.equal(sitemap.split(`<loc>https://flpawn.com/${name}</loc>`).length - 1, 1);
+    assert.ok(article.includes(`rel="canonical" href="https://flpawn.com/${name}"`));
+    assert.equal((article.match(/<h1>/g) || []).length, 1);
+    assert.match(article, /<main>\s*<article/);
+    for (const asset of article.matchAll(/(?:src|href)="([^"]+)"/g)) {
+      if (/^(https?:|tel:|mailto:|#|\/)/.test(asset[1])) continue;
+      assert.ok(fs.existsSync(path.join(root, asset[1].split('#')[0])), asset[1]);
+    }
+    for (const asset of ['cookie-consent.js', '/_vercel/insights/script.js']) {
+      assert.equal(article.split(`src="${asset}"`).length - 1, 1);
+    }
+    assert.ok(article.includes('href="blog.html"'));
+    assert.ok(!article.includes('blog-black-friday-shopping.html'));
+  });
+}
+
+test('no-credit-check article includes the uploaded service and statute links', () => {
+  const article = fs.readFileSync(path.join(root, 'blog-pawn-loans-no-credit-check.html'), 'utf8');
+  for (const name of ['pawn-loans.html', 'jewelry-diamonds.html', 'electronics.html', 'watches.html', 'gold-silver.html', 'how-it-works.html', 'services.html']) {
+    assert.ok(article.includes(`href="${name}"`), name);
+  }
+  assert.ok(article.includes('https://www.leg.state.fl.us/statutes/'));
+});
