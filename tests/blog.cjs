@@ -21,7 +21,8 @@ for (const [name, title, next] of [
 
   test(`${name} has a main landmark, title, and valid internal page links`, () => {
     assert.match(article, /<main><article/);
-    assert.ok(article.includes(`<h1>${title}</h1>`));
+    const heading = article.match(/<h1>([\s\S]*?)<\/h1>/)[1].replace(/<\/?span[^>]*>/g, '');
+    assert.equal(heading, title);
     assert.equal((article.match(/<h1>/g) || []).length, 1);
     assert.match(article, /<title>.+<\/title>/);
     assert.match(article, /<meta name="description" content="[^"]+">/);
@@ -34,3 +35,20 @@ for (const [name, title, next] of [
     }
   });
 }
+
+test('Black Friday update includes the supplied shopping sections and navigation links', () => {
+  const article = fs.readFileSync(path.join(root, 'blog-black-friday.html'), 'utf8');
+  for (const section of ['bf-hero', 'compare-grid', 'savings-banner', 'item-grid', 'loc-grid', 'faq']) {
+    assert.ok(article.includes(`class="${section}"`), section);
+  }
+  for (const page of ['pawn-loans.html', 'jewelry-diamonds.html', 'watches.html', 'electronics.html', 'power-tools.html', 'gold-silver.html', 'how-it-works.html', 'blog-pawn-loans-no-credit-check.html']) {
+    assert.ok(article.includes(`href="${page}"`), page);
+  }
+  for (const number of ['+19549222015', '+19549742055']) {
+    assert.ok(article.includes(`href="tel:${number}"`));
+  }
+  for (const asset of article.matchAll(/(?:src|href)="([^"#]+\.(?:css|js))"/g)) {
+    if (/^(https?:|\/)/.test(asset[1])) continue;
+    assert.ok(fs.existsSync(path.join(root, asset[1])), asset[1]);
+  }
+});
