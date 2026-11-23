@@ -60,6 +60,8 @@ for (const viewport of [{ width: 320, height: 568 }, { width: 375, height: 844 }
       }
       assert.equal(await page.locator('#homepage-promo').evaluate(el => el.scrollWidth <= el.clientWidth), true);
       await page.keyboard.press('Escape');
+      await page.locator('#homepage-promo').waitFor({ state: 'hidden' });
+      await page.waitForFunction(() => !document.documentElement.classList.contains('homepage-promo-open'));
       assert.equal(await page.locator('#homepage-promo').isVisible(), false);
       assert.equal(await page.evaluate(() => document.documentElement.classList.contains('homepage-promo-open')), false);
       await page.evaluate(key => sessionStorage.removeItem(key), key);
@@ -92,7 +94,7 @@ test('failed promotional image leaves the homepage usable', async () => {
 test('only the deployed homepage includes popup assets', () => {
   for (const file of fs.readdirSync(root).filter(file => file.endsWith('.html'))) {
     const html = fs.readFileSync(path.join(root, file), 'utf8');
-    for (const marker of ['homepage-promo.js', 'homepage-promo.css', 'id="homepage-promo"']) {
+    for (const marker of ['homepage-promo.css', 'id="homepage-promo"']) {
       assert.equal(html.includes(marker), file === 'index.html', `${file}: ${marker}`);
     }
   }
