@@ -36,6 +36,8 @@
   window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
 </script>
 <script defer src="/_vercel/insights/script.js"></script>
+<link rel="stylesheet" href="homepage-promo.css">
+<script defer src="homepage-promo.js"></script>
 <style>
 /* =============================================
    DESIGN TOKENS — Florida Pawn
@@ -1697,3 +1699,11 @@ function dismissCookie(){
   document.getElementById('cookie-banner').style.display='none';
 }
 </script>
+
+<!-- Homepage-only promotion; hidden until the image has loaded. -->
+<dialog id="homepage-promo" class="homepage-promo" aria-label="Florida Pawn Black Friday promotion">
+  <form method="dialog" class="homepage-promo__controls">
+    <button type="submit" autofocus aria-label="Close promotion">Close <span aria-hidden="true">&times;</span></button>
+  </form>
+  <img src="images/black-friday-popup.png" width="800" height="920" alt="Florida Pawn Black Friday promotion" decoding="async">
+</dialog>
