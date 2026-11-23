@@ -53,7 +53,7 @@ test('Black Friday update includes the supplied shopping sections and navigation
   }
 });
 
-for (const name of ['blog-electronics-pawn-value.html', 'blog-watches-holiday-gift.html']) {
+for (const name of ['blog-electronics-pawn-value.html', 'blog-watches-holiday-gift.html', 'blog-layaway-holiday.html']) {
   test(`${name} is listed once, included in the sitemap, and has valid local links and shared assets`, () => {
     const article = fs.readFileSync(path.join(root, name), 'utf8');
     const blog = fs.readFileSync(path.join(root, 'blog.html'), 'utf8');
@@ -81,4 +81,18 @@ test('no-credit-check article includes the uploaded service and statute links', 
     assert.ok(article.includes(`href="${name}"`), name);
   }
   assert.ok(article.includes('https://www.leg.state.fl.us/statutes/'));
+});
+
+
+test('layaway article preserves uploaded sections and uses current location details', () => {
+  const article = fs.readFileSync(path.join(root, 'blog-layaway-holiday.html'), 'utf8');
+  for (const section of ['lay-hero', 'steps', 'benefit-grid', 'compare-grid', 'item-grid', 'faq', 'loc-grid']) {
+    assert.ok(article.includes(`class="${section}"`), section);
+  }
+  for (const detail of ['tel:+19543537296', 'tel:+17549995626', 'Mon–Fri 10AM–6PM · Sat 10AM–5PM · Sun closed', 'November 2026']) {
+    assert.ok(article.includes(detail), detail);
+  }
+  assert.ok(!article.includes('style.css'));
+  assert.ok(!article.includes('November 2024'));
+  assert.ok(!article.includes('nav__toggle'));
 });
