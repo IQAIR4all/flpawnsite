@@ -1,0 +1,48 @@
+/* Independent of page-specific header styles; native language names need no flags. */
+.language-switcher {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: .5rem;
+  padding: .55rem max(1rem, calc((100% - 1200px) / 2));
+  background: #152030;
+  color: #c8a84b;
+  font: 500 .85rem/1.5 Inter, system-ui, sans-serif;
+}
+.language-switcher a {
+  display: inline-block;
+  padding: .35rem .25rem;
+  color: #f0f4f8;
+  text-decoration: none;
+}
+.language-switcher a[aria-current] { color: #e8cc7a; text-decoration: underline; text-underline-offset: .25rem; }
+.language-switcher a:focus-visible { outline: 2px solid #e8cc7a; outline-offset: 2px; }
+.translation-notice {
+  padding: 1rem max(1rem, calc((100% - 1160px) / 2));
+  background: #f3f0e8;
+  color: #1e2b3c;
+  font: .9rem/1.6 Inter, system-ui, sans-serif;
+}
+.translation-notice a { color: #705510; text-decoration: underline; }
+html[lang="es"] :is(h1,h2,h3,p,a,button,label),
+html[lang="ht"] :is(h1,h2,h3,p,a,button,label) { overflow-wrap: break-word; }
+@media (max-width: 600px) {
+  .language-switcher { justify-content: center; }
+  html[lang="es"] .nav__links, html[lang="ht"] .nav__links { flex-wrap: wrap; }
+}
+
+.promo-language-note { padding: .75rem 1rem; color: #1e2b3c; background: #fff; font: .85rem/1.5 Inter, system-ui, sans-serif; }
+.localized-grid > * { min-width: 0; }
+@media (max-width: 900px) {
+  .localized-grid { grid-template-columns: minmax(0, 1fr) !important; }
+  html[lang="es"] .util-bar__links, html[lang="ht"] .util-bar__links { flex-wrap: wrap; gap: .5rem 1rem; }
+}
+html[lang="es"] .cat-tile, html[lang="ht"] .cat-tile { min-width: 0; overflow-wrap: anywhere; }
+@media (max-width: 520px) {
+  html[lang="es"] .cat-grid, html[lang="ht"] .cat-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 900px) {
+  html[lang="es"] .util-bar__inner > div:first-child,
+  html[lang="ht"] .util-bar__inner > div:first-child { flex-wrap: wrap; gap: .5rem 1rem !important; min-width: 0; }
+}
