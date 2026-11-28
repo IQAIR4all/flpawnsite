@@ -1,5 +1,6 @@
 (function () {
   'use strict';
+  var t = window.fpText || function (text) { return text; };
   var key = 'fp_cookie_consent_v1';
   var choice = null;
   try { choice = localStorage.getItem(key); } catch (error) { /* Ask again when storage is unavailable. */ }
@@ -13,10 +14,26 @@
 
   var banner = document.createElement('section');
   banner.className = 'cookie-consent';
-  banner.setAttribute('aria-label', 'Cookie preferences');
+  banner.setAttribute('aria-label', t('Cookie preferences'));
   banner.hidden = !!choice;
-  banner.innerHTML = '<p>Optional analytics tags, including Google Tag Manager, are off unless you accept. You can reject them and still use this site. <a href="privacy-policy.html">Privacy Policy</a></p>' +
-    '<div class="cookie-consent__actions"><button type="button" data-choice="accepted">Accept</button><button type="button" data-choice="rejected">Reject</button></div>';
+  var message = document.createElement('p');
+  message.append(document.createTextNode(t('Optional analytics tags, including Google Tag Manager, are off unless you accept. You can reject them and still use this site.') + ' '));
+  var privacy = document.createElement('a');
+  var lang = document.documentElement.lang;
+  privacy.href = (lang === 'es' || lang === 'ht' ? '/' + lang + '/' : '') + 'privacy-policy.html';
+  privacy.textContent = t('Privacy Policy');
+  message.appendChild(privacy);
+  banner.appendChild(message);
+  var actions = document.createElement('div');
+  actions.className = 'cookie-consent__actions';
+  [['accepted', 'Accept'], ['rejected', 'Reject']].forEach(function (option) {
+    var button = document.createElement('button');
+    button.type = 'button';
+    button.setAttribute('data-choice', option[0]);
+    button.textContent = t(option[1]);
+    actions.appendChild(button);
+  });
+  banner.appendChild(actions);
   document.body.appendChild(banner);
 
   // Only explicitly marked optional cookie-based scripts may run after consent.
@@ -37,7 +54,7 @@
   var settings = document.createElement('button');
   settings.type = 'button';
   settings.className = 'cookie-settings';
-  settings.textContent = 'Cookie settings';
+  settings.textContent = t('Cookie settings');
   settings.addEventListener('click', function () {
     banner.hidden = false;
     banner.querySelector('button').focus();

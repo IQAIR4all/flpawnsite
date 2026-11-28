@@ -1,0 +1,19 @@
+{
+  "name": "florida-pawn-site",
+  "version": "1.0.0",
+  "scripts": {
+    "localize": "node scripts/localize.cjs",
+    "test:languages": "node --test tests/languages.cjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IQAIR4all/flpawnsite.git"
+  },
+  "type": "commonjs",
+  "devDependencies": {
+    "acorn": "^8.19.0",
+    "jsdom": "^31.0.1",
+    "playwright": "^1.65.1"
+  },
+  "private": true
+}
