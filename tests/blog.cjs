@@ -53,7 +53,7 @@ test('Black Friday update includes the supplied shopping sections and navigation
   }
 });
 
-for (const name of ['blog-electronics-pawn-value.html', 'blog-watches-holiday-gift.html', 'blog-layaway-holiday.html', 'blog-broken-jewelry.html']) {
+for (const name of ['blog-electronics-pawn-value.html', 'blog-watches-holiday-gift.html', 'blog-layaway-holiday.html', 'blog-broken-jewelry.html', 'blog-mca-vs-pawn.html']) {
   test(`${name} is listed once, included in the sitemap, and has valid local links and shared assets`, () => {
     const article = fs.readFileSync(path.join(root, name), 'utf8');
     const blog = fs.readFileSync(path.join(root, 'blog.html'), 'utf8');
@@ -113,4 +113,22 @@ test('broken-jewelry article preserves supplied sections with current location d
   assert.ok(!article.includes('nav__toggle'));
   const blog = fs.readFileSync(path.join(root, 'blog.html'), 'utf8');
   assert.ok(blog.indexOf('href="blog-broken-jewelry.html"') < blog.indexOf('href="blog-layaway-holiday.html"'));
+});
+
+
+test('MCA article preserves the uploaded sections with current location details and accessible navigation', () => {
+  const article = fs.readFileSync(path.join(root, 'blog-mca-vs-pawn.html'), 'utf8');
+  for (const section of ['mca-hero', 'stat-row', 'red-flags', 'compare-table', 'benefit-grid', 'savings-banner', 'faq', 'loc-grid']) {
+    assert.ok(article.includes(`class="${section}"`), section);
+  }
+  for (const detail of ['tel:+19543537296', 'tel:+17549995626', 'Mon–Fri 10AM–6PM · Sat 10AM–5PM · Sun closed', 'November 2026']) {
+    assert.ok(article.includes(detail), detail);
+  }
+  assert.ok(article.includes('class="site-header"'));
+  assert.ok(article.includes('aria-label="MCA and Florida Pawn loan comparison" tabindex="0"'));
+  assert.ok(!article.includes('href="style.css"'));
+  assert.ok(!article.includes('November 2025'));
+  assert.ok(!article.includes('nav__toggle'));
+  const blog = fs.readFileSync(path.join(root, 'blog.html'), 'utf8');
+  assert.ok(blog.indexOf('href="blog-mca-vs-pawn.html"') < blog.indexOf('href="blog-broken-jewelry.html"'));
 });
